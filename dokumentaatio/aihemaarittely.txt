@@ -1,0 +1,12 @@
+Aihe: Viinimuistio-ohjelma
+Toteutetaan ohjelma, jonka avulla henkilö voi pitää kirjaa maistamistaan viineistä.
+
+Ohjelma tallettaa käyttäjän syöttämät tiedot, ja käyttäjä voi hakea tietoja aiemmista muistiinpanoista.
+
+Käyttäjät: Viinien maistaja
+
+Toiminnot:
+
+- Viinien lisääminen
+- Viinien listaaminen
+- Viinien hakeminen

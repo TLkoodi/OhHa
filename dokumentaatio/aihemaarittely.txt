@@ -1,7 +1,9 @@
-Aihe: Viinimuistio-ohjelma
+﻿Aihe: Viinimuistio-ohjelma
 Toteutetaan ohjelma, jonka avulla henkilö voi pitää kirjaa maistamistaan viineistä.
 
 Ohjelma tallettaa käyttäjän syöttämät tiedot, ja käyttäjä voi hakea tietoja aiemmista muistiinpanoista.
+
+Luodessa uutta muistiinpanoa juoman tyyppi ja maistamispäivämäärä ja muut valmiiksi annetut vaihtoehdot valitaan ohjelman pudotusvalikosta.
 
 Käyttäjät: Viinien maistaja
 

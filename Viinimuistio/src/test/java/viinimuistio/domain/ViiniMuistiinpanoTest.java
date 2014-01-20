@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Tony
  */
-public class ViiniTest {
+public class ViiniMuistiinpanoTest {
     
-    public ViiniTest() {
+    public ViiniMuistiinpanoTest() {
     }
     
     @BeforeClass

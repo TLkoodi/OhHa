@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static viinimuistio.domain.Viinialue.*;
 
 /**
  *
@@ -227,6 +228,99 @@ public class ViiniMuistiinpanoTest {
         boolean vastaus = muistiinpano.onkoVuosikerta();
         
         assertEquals(false, vastaus);
+    }
+    
+    @Test
+    public void josVirheellinenVuosikertaYritettyLisataNiinOnkoLisatty(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");      
+        
+        muistiinpano.setVuosikerta(2049);
+        
+        boolean vastaus = muistiinpano.onkoVuosikerta();
+        
+        assertEquals(false, vastaus);
+    }
+    
+    @Test
+    public void kuvauksenLisaysToimii(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");      
+        
+        muistiinpano.setKuvaus("hihi");
+        
+        String vastaus = muistiinpano.getKuvaus();
+        
+        assertEquals("hihi", vastaus);
+    }
+    
+    @Test
+    public void kuvauksAlussaTyhja(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        
+        String vastaus = muistiinpano.getKuvaus();
+        
+        assertEquals("", vastaus);
+    }
+    
+    @Test
+    public void viiniAlueLisaytyyOikein(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        
+        muistiinpano.setViinialue(Ranska);
+        
+        String vastaus = muistiinpano.getViinialue();
+        
+        assertEquals("Ranska", vastaus);
+    }
+    
+    @Test
+    public void alussaEiOleViiniAluetta(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        
+        String vastaus = muistiinpano.getViinialue();
+        
+        assertEquals(null, vastaus);
+    }
+    
+    @Test
+    public void arvioAsettuuOikein(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        
+        muistiinpano.setArvioViinista(1);
+        
+        int vastaus = muistiinpano.getArvioViinista();
+        
+        assertEquals(1, vastaus);
+    }
+    
+    @Test
+    public void eiLiianPientaArviota(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        
+        muistiinpano.setArvioViinista(-1);
+        
+        int vastaus = muistiinpano.getArvioViinista();
+        
+        assertEquals(0, vastaus);
+    }
+    
+    @Test
+    public void eiLiianIsoaArviota(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        
+        muistiinpano.setArvioViinista(6);
+        
+        int vastaus = muistiinpano.getArvioViinista();
+        
+        assertEquals(0, vastaus);
+    }
+    
+    @Test
+    public void alussaEiArviotaViinista(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");       
+        
+        int vastaus = muistiinpano.getArvioViinista();
+        
+        assertEquals(0, vastaus);
     }
     
 }

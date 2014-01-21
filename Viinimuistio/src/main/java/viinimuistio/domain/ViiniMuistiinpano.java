@@ -43,8 +43,12 @@ public class ViiniMuistiinpano implements Muistiinpano {
         alue = asetettavaAlue;
     }
 
-    public Viinialue getViinialue() {
-        return alue;
+    public String getViinialue() {
+        if (alue == null){
+            return null;
+        }
+        String palautus = "" + alue;
+        return palautus;
     }
 
     public Integer getVuosikerta() {

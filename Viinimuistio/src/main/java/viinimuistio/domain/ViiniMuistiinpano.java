@@ -31,6 +31,13 @@ public class ViiniMuistiinpano implements Muistiinpano {
     
     public void setPaivamaara(int paiva, int kuukausi, int vuosi){
         
+        
+        if (paiva < 32 || paiva > 0){
+            paivamaara = paiva + ".";
+        }    
+            
+            
+        paivamaara = paiva + "." + kuukausi + "." + vuosi;
     }
     
 }

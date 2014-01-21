@@ -6,6 +6,7 @@
 
 package viinimuistio.domain;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.String;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -42,6 +43,26 @@ public class ViiniMuistiinpanoTest {
     public void testSomeMethod() {
         // TODO review the generated test code and remove the default call to fail.
         //("The test case is a prototype.");
+    }
+    
+    @Test
+    public void nimiOikeinKunAsetettuKonstruktorilla(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        
+        String vastaus = muistiinpano.getNimi();
+        
+        assertEquals("Hienonimi", vastaus);
+    }
+    
+    @Test
+    public void nimiOikeinKunAsetettuMetodilla(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        
+        muistiinpano.setNimi("uusinimi");
+        
+        String vastaus = muistiinpano.getNimi();
+        
+        assertEquals("uusinimi", vastaus);
     }
     
 }

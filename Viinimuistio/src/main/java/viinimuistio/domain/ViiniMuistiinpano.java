@@ -19,28 +19,41 @@ public class ViiniMuistiinpano implements Muistiinpano {
     private int vuosikerta;
     private boolean onkoVuosikerta;
     private Viinialue alue;
-    
-    
+    private int arvioViinista;
+
     public ViiniMuistiinpano(String nimi) {
         this.onkoVuosikerta = false;
         this.nimi = nimi;
     }
-    
-    public void setViinialue(Viinialue asetettavaAlue){
+
+    public Integer getArvioViinista() {
+        if (arvioViinista >= 0 || arvioViinista < 6) {
+            return arvioViinista;
+        }
+        return null;
+    }
+
+    public void setArvioViinista(int arvioViinista) {
+        if (arvioViinista < 6 && arvioViinista >= 0) {
+            this.arvioViinista = arvioViinista;
+        }
+    }
+
+    public void setViinialue(Viinialue asetettavaAlue) {
         alue = asetettavaAlue;
     }
-    
-    public Viinialue getViinialue(){
+
+    public Viinialue getViinialue() {
         return alue;
     }
 
     public Integer getVuosikerta() {
-        if (onkoVuosikerta){        
+        if (onkoVuosikerta) {
             return vuosikerta;
         } else {
             return null;
         }
-        
+
     }
 
     public void setVuosikerta(int AsetettavaVuosikerta) {
@@ -49,7 +62,10 @@ public class ViiniMuistiinpano implements Muistiinpano {
             onkoVuosikerta = true;
         }
     }
-
+    
+    public boolean onkoVuosikerta(){
+        return onkoVuosikerta;
+    }
 
     @Override
     public String getKuvaus() {
@@ -75,7 +91,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
     }
 
     public void setPaiva(int asetettavaPaiva) {
-        if (asetettavaPaiva > 32 || asetettavaPaiva > 0) {
+        if (asetettavaPaiva < 32 && asetettavaPaiva > 0) {
             paiva = asetettavaPaiva;
         }
     }

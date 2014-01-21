@@ -38,12 +38,6 @@ public class ViiniMuistiinpanoTest {
     @After
     public void tearDown() {
     }
-
-    @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        //("The test case is a prototype.");
-    }
     
     @Test
     public void nimiOikeinKunAsetettuKonstruktorilla(){
@@ -64,5 +58,6 @@ public class ViiniMuistiinpanoTest {
         
         assertEquals("uusinimi", vastaus);
     }
+    
     
 }

@@ -4,9 +4,9 @@ package viinimuistio.domain;
 
 public interface Muistiinpano {
     
-    String getNimi();
+    String getTuotteenNimi();
     String getMuistiinpanoPaivamaara();
-    String getKuvaus();
+    String getVapaaKuvausMuistiinpanoon();
     
     }
     

@@ -11,20 +11,20 @@ package viinimuistio.domain;
  */
 public class ViiniMuistiinpano implements Muistiinpano {
 
-    private String nimi;
-    private int paiva = 1;
-    private int kuukausi = 1;
-    private int vuosi = 2014;
-    private String kuvaus = "";
+    private String tuotteenNimi;
+    private int muistiinpanonPaiva = 1;
+    private int muistiinpanonKuukausi = 1;
+    private int muistiinpanonVuosi = 2014;
+    private String vapaaKuvausMuistiinpanoon = "";
     private int vuosikerta;
     private boolean onkoVuosikerta;
     private Viinialue alue;
     private int arvioViinista;
     private String rypaleet;
-    
+
     public ViiniMuistiinpano(String nimi) {
         this.onkoVuosikerta = false;
-        this.nimi = nimi;
+        this.tuotteenNimi = nimi;
     }
 
     public String getRypaleet() {
@@ -53,7 +53,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
     }
 
     public String getViinialue() {
-        if (alue == null){
+        if (alue == null) {
             return null;
         }
         String palautus = "" + alue;
@@ -75,62 +75,62 @@ public class ViiniMuistiinpano implements Muistiinpano {
             onkoVuosikerta = true;
         }
     }
-    
-    public boolean onkoVuosikerta(){
+
+    public boolean onkoVuosikerta() {
         return onkoVuosikerta;
     }
 
     @Override
-    public String getKuvaus() {
-        return this.kuvaus;
+    public String getVapaaKuvausMuistiinpanoon() {
+        return this.vapaaKuvausMuistiinpanoon;
     }
 
-    public void setKuvaus(String kuvaus) {
-        this.kuvaus = kuvaus;
+    public void setVapaaKuvausMuistiinpanoon(String vapaaKuvausMuistiinpanoon) {
+        this.vapaaKuvausMuistiinpanoon = vapaaKuvausMuistiinpanoon;
     }
 
     @Override
-    public String getNimi() {
-        return nimi;
+    public String getTuotteenNimi() {
+        return tuotteenNimi;
     }
 
-    public void setNimi(String asetettavaNimi) {
-        nimi = asetettavaNimi;
+    public void setTuotteenNimi(String asetettavaNimi) {
+        tuotteenNimi = asetettavaNimi;
     }
 
     @Override
     public String getMuistiinpanoPaivamaara() {
-        return paiva + "." + kuukausi + "." + vuosi;
+        return muistiinpanonPaiva + "." + muistiinpanonKuukausi + "." + muistiinpanonVuosi;
     }
 
-    public void setPaiva(int asetettavaPaiva) {
+    public void setMuistiinpanonPaiva(int asetettavaPaiva) {
         if (asetettavaPaiva < 32 && asetettavaPaiva > 0) {
-            paiva = asetettavaPaiva;
+            muistiinpanonPaiva = asetettavaPaiva;
         }
     }
 
-    public void setKuukausi(int asetettavaKuukausi) {
+    public void setMuistiinpanonKuukausi(int asetettavaKuukausi) {
         if (asetettavaKuukausi < 13 && asetettavaKuukausi > 0) {
-            kuukausi = asetettavaKuukausi;
+            muistiinpanonKuukausi = asetettavaKuukausi;
         }
     }
 
     public void setVuosi(int asetettavaVuosi) {
         if (asetettavaVuosi < 2020 && asetettavaVuosi > 1970) {
-            vuosi = asetettavaVuosi;
+            muistiinpanonVuosi = asetettavaVuosi;
         }
     }
 
-    public int getPaiva() {
-        return paiva;
+    public int getMuistiinpanonPaiva() {
+        return muistiinpanonPaiva;
     }
 
-    public int getKuukausi() {
-        return kuukausi;
+    public int getMuistiinpanonKuukausi() {
+        return muistiinpanonKuukausi;
     }
 
     public int getVuosi() {
-        return vuosi;
+        return muistiinpanonVuosi;
     }
 
 }

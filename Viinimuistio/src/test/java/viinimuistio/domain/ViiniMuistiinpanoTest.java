@@ -44,7 +44,7 @@ public class ViiniMuistiinpanoTest {
     public void nimiOikeinKunAsetettuKonstruktorilla(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
         
-        String vastaus = muistiinpano.getNimi();
+        String vastaus = muistiinpano.getTuotteenNimi();
         
         assertEquals("Hienonimi", vastaus);
     }
@@ -53,9 +53,9 @@ public class ViiniMuistiinpanoTest {
     public void nimiOikeinKunAsetettuMetodilla(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
         
-        muistiinpano.setNimi("uusinimi");
+        muistiinpano.setTuotteenNimi("uusinimi");
         
-        String vastaus = muistiinpano.getNimi();
+        String vastaus = muistiinpano.getTuotteenNimi();
         
         assertEquals("uusinimi", vastaus);
     }
@@ -115,9 +115,9 @@ public class ViiniMuistiinpanoTest {
     public void paivaAsettuuOikein(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
         
-        muistiinpano.setPaiva(12);
+        muistiinpano.setMuistiinpanonPaiva(12);
         
-        int vastaus = muistiinpano.getPaiva();
+        int vastaus = muistiinpano.getMuistiinpanonPaiva();
         
         assertEquals(12, vastaus);
     }
@@ -126,9 +126,9 @@ public class ViiniMuistiinpanoTest {
     public void eiLiianIsoaPaivalukemaa(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
         
-        muistiinpano.setPaiva(32);
+        muistiinpano.setMuistiinpanonPaiva(32);
         
-        int vastaus = muistiinpano.getPaiva();
+        int vastaus = muistiinpano.getMuistiinpanonPaiva();
         
         assertEquals(1, vastaus);
     }
@@ -137,9 +137,9 @@ public class ViiniMuistiinpanoTest {
     public void eiLiianPientaPaivalukemaa(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
         
-        muistiinpano.setPaiva(0);
+        muistiinpano.setMuistiinpanonPaiva(0);
         
-        int vastaus = muistiinpano.getPaiva();
+        int vastaus = muistiinpano.getMuistiinpanonPaiva();
         
         assertEquals(1, vastaus);
     }
@@ -148,9 +148,9 @@ public class ViiniMuistiinpanoTest {
     public void kuukausiAsettuuOikein(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
         
-        muistiinpano.setKuukausi(12);
+        muistiinpano.setMuistiinpanonKuukausi(12);
         
-        int vastaus = muistiinpano.getKuukausi();
+        int vastaus = muistiinpano.getMuistiinpanonKuukausi();
         
         assertEquals(12, vastaus);
     }
@@ -159,9 +159,9 @@ public class ViiniMuistiinpanoTest {
     public void eiLiianIsoaKuukautta(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
         
-        muistiinpano.setKuukausi(13);
+        muistiinpano.setMuistiinpanonKuukausi(13);
         
-        int vastaus = muistiinpano.getKuukausi();
+        int vastaus = muistiinpano.getMuistiinpanonKuukausi();
         
         assertEquals(1, vastaus);
     }
@@ -170,9 +170,9 @@ public class ViiniMuistiinpanoTest {
     public void eiLiianPientaKuukautta(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
         
-        muistiinpano.setKuukausi(0);
+        muistiinpano.setMuistiinpanonKuukausi(0);
         
-        int vastaus = muistiinpano.getKuukausi();
+        int vastaus = muistiinpano.getMuistiinpanonKuukausi();
         
         assertEquals(1, vastaus);
     }
@@ -245,9 +245,9 @@ public class ViiniMuistiinpanoTest {
     public void kuvauksenLisaysToimii(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");      
         
-        muistiinpano.setKuvaus("hihi");
+        muistiinpano.setVapaaKuvausMuistiinpanoon("hihi");
         
-        String vastaus = muistiinpano.getKuvaus();
+        String vastaus = muistiinpano.getVapaaKuvausMuistiinpanoon();
         
         assertEquals("hihi", vastaus);
     }
@@ -256,7 +256,7 @@ public class ViiniMuistiinpanoTest {
     public void kuvauksAlussaTyhja(){
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
         
-        String vastaus = muistiinpano.getKuvaus();
+        String vastaus = muistiinpano.getVapaaKuvausMuistiinpanoon();
         
         assertEquals("", vastaus);
     }

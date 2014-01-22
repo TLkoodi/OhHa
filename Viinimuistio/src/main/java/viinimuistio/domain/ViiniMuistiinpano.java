@@ -20,10 +20,19 @@ public class ViiniMuistiinpano implements Muistiinpano {
     private boolean onkoVuosikerta;
     private Viinialue alue;
     private int arvioViinista;
-
+    private String rypaleet;
+    
     public ViiniMuistiinpano(String nimi) {
         this.onkoVuosikerta = false;
         this.nimi = nimi;
+    }
+
+    public String getRypaleet() {
+        return rypaleet;
+    }
+
+    public void setRypaleet(String rypaleet) {
+        this.rypaleet = rypaleet;
     }
 
     public Integer getArvioViinista() {

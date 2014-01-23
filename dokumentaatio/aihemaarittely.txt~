@@ -3,7 +3,7 @@ Toteutetaan ohjelma, jonka avulla henkilö voi pitää kirjaa maistamistaan viin
 
 Ohjelma tallettaa käyttäjän syöttämät tiedot ohjelman luomaan tiedostoon, ja käyttäjä voi hakea tietoja aiemmista muistiinpanoista.
 
-Luodessa uutta muistiinpanoa juoman tyyppi ja maistamispäivämäärä ja muut valmiiksi annetut vaihtoehdot valitaan käyttöliittymään toteutettavasta pudotusvalikosta.
+Luodessa uutta muistiinpanoa juoman tyyppi ja maistamispäivämäärä ja muut valmiiksi annetut vaihtoehdot valitaan käyttöliittymään toteutettavasta pudotusvalikosta. Valmiiksi asetettujen vaihtoehtojen lisäksi käyttäjän on mahdollisuus antaa vapaa teksti tietyille arvoille, kuten "vapaa kuvaus".
 
 Käyttäjät: Viinien maistaja
 

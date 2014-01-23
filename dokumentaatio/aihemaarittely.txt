@@ -24,3 +24,11 @@ Mahdollisia hakukriteerejä muistiinpanojen hakuvaiheessa (Ei valmis):
 - Arviointihetki
 - Vuosikerta
 
+Hahmottamisen helpottamiseksi suunniteltu järjestys tiedostoon tallennetuille muistiinpanon arvoille (yksi arvo per rivi):
+1.Viinin nimi
+2.Viinin maistamishetki (muodossa DD.MM.YYYY)
+3.Viinityyppi (ENUM: Puna, Valko, Kuohu, Port, Jalkiruoka, Muu)
+4.Viinialue (ENUM: Toistaiseksi rajoittuu viinimaahan)
+5.Viinissä käytetyt rypäleet (VAPAA TEKSTI)
+6.Arvio viinistä (INT 0..5, voidaan mieltää "montako tähteä tälle viinille")
+7.kuvaus, omaa tekstiä, kokemusta, lisätietoja, yms. (VAPAA TEKSTI)

@@ -18,9 +18,10 @@ public class ViiniMuistiinpano implements Muistiinpano {
     private String vapaaKuvausMuistiinpanoon = "";
     private int vuosikerta;
     private boolean onkoVuosikerta;
-    private Viinialue alue;
+    private Viinialue viinialue;
     private int arvioViinista;
     private String rypaleet;
+    private Viinityyppi viinityyppi;
 
     public ViiniMuistiinpano(String nimi) {
         this.onkoVuosikerta = false;
@@ -49,14 +50,14 @@ public class ViiniMuistiinpano implements Muistiinpano {
     }
 
     public void setViinialue(Viinialue asetettavaAlue) {
-        alue = asetettavaAlue;
+        viinialue = asetettavaAlue;
     }
 
     public String getViinialue() {
-        if (alue == null) {
+        if (viinialue == null) {
             return null;
         }
-        String palautus = "" + alue;
+        String palautus = "" + viinialue;
         return palautus;
     }
 

@@ -11,17 +11,17 @@ package viinimuistio.domain;
  */
 public class ViiniMuistiinpano implements Muistiinpano {
 
-    private String tuotteenNimi;
+    private String tuotteenNimi;    
+    private Viinityyppi viinityyppi;    
+    private Viinialue viinialue;    
+    private String rypaleet;
+    private int vuosikerta;
+    private int arvioViinista;
+    private String vapaaKuvausMuistiinpanoon = "";    
     private int muistiinpanonPaiva = 1;
     private int muistiinpanonKuukausi = 1;
-    private int muistiinpanonVuosi = 2014;
-    private String vapaaKuvausMuistiinpanoon = "";
-    private int vuosikerta;
+    private int muistiinpanonVuosi = 2014;    
     private boolean onkoVuosikerta;
-    private Viinialue viinialue;
-    private int arvioViinista;
-    private String rypaleet;
-    private Viinityyppi viinityyppi;
 
     public ViiniMuistiinpano(String nimi) {
         this.onkoVuosikerta = false;

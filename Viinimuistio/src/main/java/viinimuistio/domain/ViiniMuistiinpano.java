@@ -23,6 +23,14 @@ public class ViiniMuistiinpano implements Muistiinpano {
     private int muistiinpanonVuosi = 2014;    
     private boolean onkoVuosikerta;
 
+    public Viinityyppi getViinityyppi() {
+        return viinityyppi;
+    }
+
+    public void setViinityyppi(Viinityyppi viinityyppi) {
+        this.viinityyppi = viinityyppi;
+    }
+
     public ViiniMuistiinpano(String nimi) {
         this.onkoVuosikerta = false;
         this.tuotteenNimi = nimi;
@@ -116,7 +124,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
         }
     }
 
-    public void setVuosi(int asetettavaVuosi) {
+    public void setMuistiinpanonVuosi(int asetettavaVuosi) {
         if (asetettavaVuosi < 2020 && asetettavaVuosi > 1970) {
             muistiinpanonVuosi = asetettavaVuosi;
         }
@@ -130,7 +138,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
         return muistiinpanonKuukausi;
     }
 
-    public int getVuosi() {
+    public int getMuistiinpanonVuosi() {
         return muistiinpanonVuosi;
     }
 

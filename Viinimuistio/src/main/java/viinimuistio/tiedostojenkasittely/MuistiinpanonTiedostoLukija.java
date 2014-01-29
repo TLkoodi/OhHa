@@ -7,19 +7,9 @@ package viinimuistio.tiedostojenkasittely;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.*;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import viinimuistio.domain.ViiniMuistiinpano;
-import viinimuistio.domain.Viinialue;
-import viinimuistio.domain.Viinityyppi;
 
 /**
  *

@@ -6,5 +6,5 @@ package viinimuistio.domain;
  */
 public enum Viinialue {
     Ranska, Saksa, Italia, Espanja, Chile, Yhdysvallat, Itävalta, 
-    Argenttiina, EtelaAfrikka, Portugali, UusiSeelanti, Australia, Muu  
+    Argenttiina, EtelaAfrikka, Portugali, UusiSeelanti, Australia, Muu, Ei_asetettu
 }

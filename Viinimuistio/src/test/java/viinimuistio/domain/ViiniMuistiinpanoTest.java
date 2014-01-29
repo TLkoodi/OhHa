@@ -12,6 +12,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import viinimuistio.domain.ViiniMuistiinpano;
 import static org.junit.Assert.*;
 import static viinimuistio.domain.Viinialue.*;
 
@@ -40,18 +41,11 @@ public class ViiniMuistiinpanoTest {
     public void tearDown() {
     }
     
-    @Test
-    public void nimiOikeinKunAsetettuKonstruktorilla(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
-        
-        String vastaus = muistiinpano.getTuotteenNimi();
-        
-        assertEquals("Hienonimi", vastaus);
-    }
+    
     
     @Test
     public void nimiOikeinKunAsetettuMetodilla(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setTuotteenNimi("uusinimi");
         
@@ -61,10 +55,20 @@ public class ViiniMuistiinpanoTest {
     }
     
     @Test
-    public void asettaaVuosikerranOikein(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+    public void nimiNimieamatonKunEiAnnettuNimea(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
-        muistiinpano.setVuosi(2000);
+        
+        String vastaus = muistiinpano.getTuotteenNimi();
+        
+        assertEquals("Nimeämätön tuote", vastaus);
+    }
+    
+    @Test
+    public void asettaaVuosikerranOikein(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+        
+        muistiinpano.setMuistiinpanonVuosi(2000);
         
         int vastaus = muistiinpano.getVuosi();
         
@@ -73,9 +77,9 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void EiAsetaLiianIsoaVuosiKertaa(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
-        muistiinpano.setVuosi(2020);
+        muistiinpano.setMuistiinpanonVuosi(2020);
         
         Integer vastaus = muistiinpano.getVuosikerta();
         
@@ -84,9 +88,9 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void EiAsetaLiianPientäVuosikertaa(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
-        muistiinpano.setVuosi(1620);
+        muistiinpano.setMuistiinpanonVuosi(1620);
         
         Integer vastaus = muistiinpano.getVuosikerta();
         
@@ -95,7 +99,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void vuosikertaAluksiNull(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         Integer vastaus = muistiinpano.getVuosikerta();
         
@@ -104,7 +108,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void paivamaaraAlussa2014(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         String vastaus = muistiinpano.getMuistiinpanoPaivamaara();
         
@@ -113,7 +117,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void paivaAsettuuOikein(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setMuistiinpanonPaiva(12);
         
@@ -124,7 +128,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void eiLiianIsoaPaivalukemaa(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setMuistiinpanonPaiva(32);
         
@@ -135,7 +139,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void eiLiianPientaPaivalukemaa(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setMuistiinpanonPaiva(0);
         
@@ -146,7 +150,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void kuukausiAsettuuOikein(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setMuistiinpanonKuukausi(12);
         
@@ -157,7 +161,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void eiLiianIsoaKuukautta(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setMuistiinpanonKuukausi(13);
         
@@ -168,7 +172,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void eiLiianPientaKuukautta(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setMuistiinpanonKuukausi(0);
         
@@ -179,9 +183,9 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void eiLiianIsoaVuotta(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
-        muistiinpano.setVuosi(2111);
+        muistiinpano.setMuistiinpanonVuosi(2111);
         
         int vastaus = muistiinpano.getVuosi();
         
@@ -190,9 +194,9 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void eiLiianPientaVuotta(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
-        muistiinpano.setVuosi(1600);
+        muistiinpano.setMuistiinpanonVuosi(1600);
         
         int vastaus = muistiinpano.getVuosi();
         
@@ -201,9 +205,9 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void vuosiAsettuuOikein(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
-        muistiinpano.setVuosi(1989);
+        muistiinpano.setMuistiinpanonVuosi(1989);
         
         int vastaus = muistiinpano.getVuosi();
         
@@ -211,8 +215,19 @@ public class ViiniMuistiinpanoTest {
     }
     
     @Test
+    public void paivamaaraAsettuuOikeinJosAsetettuStringilla(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+        
+        muistiinpano.setMuistiinpanonPaivamaara("12.12.2012");
+        
+        String vastaus = muistiinpano.getMuistiinpanoPaivamaara();
+        
+        assertEquals("12.12.2012", vastaus);
+    }
+    
+    @Test
     public void josVuosikertaLisattyNiinOnkoLisattyTrue(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setVuosikerta(1989);
         
@@ -223,7 +238,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void josVuosikertaaEiLisattyNiinOnkoLisattyFalse(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");      
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();      
         
         boolean vastaus = muistiinpano.onkoVuosikerta();
         
@@ -232,7 +247,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void josVirheellinenVuosikertaYritettyLisataNiinOnkoLisatty(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");      
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();      
         
         muistiinpano.setVuosikerta(2049);
         
@@ -243,7 +258,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void kuvauksenLisaysToimii(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");      
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();      
         
         muistiinpano.setVapaaKuvausMuistiinpanoon("hihi");
         
@@ -254,7 +269,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void kuvauksAlussaTyhja(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         String vastaus = muistiinpano.getVapaaKuvausMuistiinpanoon();
         
@@ -263,9 +278,9 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void viiniAlueLisaytyyOikein(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
-        muistiinpano.setViinialue(Ranska);
+        muistiinpano.setViinialue("Ranska");
         
         String vastaus = muistiinpano.getViinialue();
         
@@ -273,8 +288,20 @@ public class ViiniMuistiinpanoTest {
     }
     
     @Test
+    public void viiniAlueOnHuonollaSyotteellaEiAsetettu(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+        
+        muistiinpano.setViinialue("lapua");
+        
+        String vastaus = muistiinpano.getViinialue();
+        
+        assertEquals("Ei_asetettu", vastaus);
+    }
+    
+    
+    @Test
     public void alussaEiOleViiniAluetta(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         String vastaus = muistiinpano.getViinialue();
         
@@ -282,8 +309,40 @@ public class ViiniMuistiinpanoTest {
     }
     
     @Test
+    public void viiniTyyppiLisaytyyOikein(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+        
+        muistiinpano.setViinityyppi("Punaviini");
+        
+        String vastaus = muistiinpano.getViinityyppi();
+        
+        assertEquals("Punaviini", vastaus);
+    }
+    
+    @Test
+    public void viiniTyyppiOnHuonollaSyotteellaEiAsetettu(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+        
+        muistiinpano.setViinityyppi("lapua");
+        
+        String vastaus = muistiinpano.getViinityyppi();
+        
+        assertEquals("Ei_asetettu", vastaus);
+    }
+    
+    
+    @Test
+    public void alussaEiOleViiniTyyppia(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+        
+        String vastaus = muistiinpano.getViinityyppi();
+        
+        assertEquals(null, vastaus);
+    }
+    
+    @Test
     public void arvioAsettuuOikein(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setArvioViinista(1);
         
@@ -294,7 +353,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void eiLiianPientaArviota(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setArvioViinista(-1);
         
@@ -305,7 +364,7 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void eiLiianIsoaArviota(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         
         muistiinpano.setArvioViinista(6);
         
@@ -316,11 +375,40 @@ public class ViiniMuistiinpanoTest {
     
     @Test
     public void alussaEiArviotaViinista(){
-        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano("Hienonimi");       
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();       
         
         int vastaus = muistiinpano.getArvioViinista();
         
         assertEquals(0, vastaus);
+    }
+    
+    @Test
+    public void tunnisteOnViini(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();       
+        
+        String vastaus = muistiinpano.getTunniste();
+        
+        assertEquals("viini", vastaus);
+    }
+    
+    @Test
+    public void rypaleetOnOikein(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();       
+
+        muistiinpano.setRypaleet("Cabernet Sauvignon");
+        
+        String vastaus = muistiinpano.getRypaleet();
+        
+        assertEquals("Cabernet Sauvignon", vastaus);
+    }
+    
+    @Test
+    public void josRypaleetEiMaariteltyVastausOnEiMaaritelty(){
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+        
+        String vastaus = muistiinpano.getRypaleet();
+        
+        assertEquals("Ei määritelty", vastaus);
     }
     
 }

@@ -11,5 +11,5 @@ package viinimuistio.domain;
  * @author lexlex
  */
 public enum Viinityyppi {
-    Punaviini, Valkoviini, Kuohuviini, Jalkiruokaviini, Portviini, Muu
+    Punaviini, Valkoviini, Kuohuviini, Jalkiruokaviini, Portviini, Muu, Ei_asetettu
 }

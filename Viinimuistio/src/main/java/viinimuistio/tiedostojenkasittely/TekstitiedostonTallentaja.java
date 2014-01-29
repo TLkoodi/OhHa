@@ -9,27 +9,19 @@ import java.io.IOException;
  *
  * @author Tony
  */
-public class MuistiinpanojenTallentaja {
+public class TekstitiedostonTallentaja {
 
-    public boolean luoTiedosto(String tiedostolleTulevaNimi) {
+    public boolean luoUusiTiedosto(String tiedostolleTulevaNimi, String tiedostoonKirjoitettavaTeksti) {
         String tiedostonNimi = tiedostolleTulevaNimi + ".txt";
-        try {
             File tiedosto = new File(tiedostonNimi);
             if (tiedosto.exists()) {
                 return false;
             }
-            BufferedWriter kirjoittaja = new BufferedWriter(new FileWriter(tiedosto));
-            kirjoittaja.write("text");
-            kirjoittaja.close();
-            return true;
+            return kirjoitaOlemassaOlevaanTiedostoon(tiedostolleTulevaNimi, tiedostoonKirjoitettavaTeksti);
 
-        } catch (IOException e) {
-        }
-
-        return false;
     }
 
-    public boolean kirjoitaTiedostoon(String tiedostolleTulevaNimi, String tiedostoonKirjoitettavaTeksti) {
+    public boolean kirjoitaOlemassaOlevaanTiedostoon(String tiedostolleTulevaNimi, String tiedostoonKirjoitettavaTeksti) {
         String tiedostonNimi = tiedostolleTulevaNimi + ".txt";
         File tiedosto = new File(tiedostonNimi);
         try {

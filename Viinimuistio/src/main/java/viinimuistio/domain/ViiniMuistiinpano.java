@@ -186,6 +186,8 @@ public class ViiniMuistiinpano implements Muistiinpano {
         palautus += getArvioViinista() + uusiRivi;
 
         palautus += getVapaaKuvausMuistiinpanoon();
+        palautus += getVuosikerta();
+        
         return palautus;
     }
 

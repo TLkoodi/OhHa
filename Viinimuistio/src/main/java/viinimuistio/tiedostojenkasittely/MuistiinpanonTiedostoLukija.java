@@ -108,6 +108,10 @@ public class MuistiinpanonTiedostoLukija {
                 if (i == 7) {
                     muistiinpano.setVapaaKuvausMuistiinpanoon(rivi);
                 }
+                
+                if (i == 8) {
+                    muistiinpano.setVuosikerta(Integer.parseInt(rivi));
+                }
 
                 i++;
             }

@@ -33,3 +33,4 @@ Hahmottamisen helpottamiseksi suunniteltu järjestys tiedostoon tallennetuille m
 5.Viinissä käytetyt rypäleet (VAPAA TEKSTI)
 6.Arvio viinistä (INT 0..5, voidaan mieltää "montako tähteä tälle viinille")
 7.kuvaus, omaa tekstiä, kokemusta, lisätietoja, yms. (VAPAA TEKSTI)
+8.Viinin vuosikerta

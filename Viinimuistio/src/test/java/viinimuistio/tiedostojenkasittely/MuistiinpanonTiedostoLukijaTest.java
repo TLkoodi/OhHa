@@ -19,22 +19,22 @@ import viinimuistio.tiedostojenkasittely.MuistiinpanonTiedostoLukija;
  * @author admin
  */
 public class MuistiinpanonTiedostoLukijaTest {
-    
+
     public MuistiinpanonTiedostoLukijaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
         String nimi = "testitiedosto";
@@ -50,7 +50,7 @@ public class MuistiinpanonTiedostoLukijaTest {
         MuistiinpanonTiedostoLukija lukija = new MuistiinpanonTiedostoLukija();
         lukija.asetaTiedosto("testitiedosto");
         String vastaus = lukija.getTiedostoNimi();
-        
+
         assertEquals("testitiedosto.txt", vastaus);
     }
 
@@ -63,15 +63,15 @@ public class MuistiinpanonTiedostoLukijaTest {
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         muistiinpano.setTuotteenNimi("testitiedosto");
         muistiinpano.setViinityyppi("Kuohuviini");
-        
+
         MuistiinpanonTallentaja tallentaja = new MuistiinpanonTallentaja(muistiinpano);
         tallentaja.tallennaUusiMuistiinpano();
-        
+
         lukija.asetaTiedosto("testitiedosto");
         ViiniMuistiinpano haettuMuistiinpano = lukija.tuoViiniTiedosto();
-        
+
         String vastaus = haettuMuistiinpano.getTuotteenNimi();
-        
+
         assertEquals("testitiedosto", vastaus);
     }
 }

@@ -27,7 +27,7 @@ import viinimuistio.domain.Viinityyppi;
  */
 public class MuistiinpanonTiedostoLukija {
 
-    BufferedReader reader;
+    BufferedReader lukija;
     String tiedostoNimi;
 
     public MuistiinpanonTiedostoLukija() {
@@ -55,68 +55,66 @@ public class MuistiinpanonTiedostoLukija {
 //        }
 //        return false;
 //    }
-    public ViiniMuistiinpano tuoViiniTiedosto(){
+    public ViiniMuistiinpano tuoViiniTiedosto() {
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
-                
+
         try {
-        FileInputStream fstream = new FileInputStream(tiedostoNimi);
-        DataInputStream in = new DataInputStream(fstream);
-        
-        
-            reader = new BufferedReader(new InputStreamReader(in));
-        
-        int i = 0;
-        
-        
-        String rivi;
-        
-            while ((rivi = reader.readLine()) != null){
+            FileInputStream fstream = new FileInputStream(tiedostoNimi);
+            DataInputStream in = new DataInputStream(fstream);
+            lukija = new BufferedReader(new InputStreamReader(in));
+
+            int i = 0;
 
 
-            System.out.println(rivi);
+            String rivi;
+
+            while ((rivi = lukija.readLine()) != null) {
 
 
-
-            if (i == 0) {
                 System.out.println(rivi);
-                
-            }
 
-            if (i == 1) {
-                System.out.println(rivi);
-                muistiinpano.setTuotteenNimi(rivi);
-            }
 
-            if (i == 2) {
-                muistiinpano.setMuistiinpanonPaivamaara(rivi);
-            }
 
-            if (i == 3) {
-                muistiinpano.setViinityyppi(rivi);
-            }
+                if (i == 0) {
+                    System.out.println(rivi);
 
-            if (i == 4) {
-                muistiinpano.setViinialue(rivi);
-            }
+                }
 
-            if (i == 5) {
-                muistiinpano.setRypaleet(rivi);
-            }
+                if (i == 1) {
+                    System.out.println(rivi);
+                    muistiinpano.setTuotteenNimi(rivi);
+                }
 
-            if (i == 6) {
-                muistiinpano.setArvioViinista(Integer.parseInt(rivi));
-            }
+                if (i == 2) {
+                    muistiinpano.setMuistiinpanonPaivamaara(rivi);
+                }
 
-            if (i == 7) {
-                muistiinpano.setVapaaKuvausMuistiinpanoon(rivi);
-            }
+                if (i == 3) {
+                    muistiinpano.setViinityyppi(rivi);
+                }
 
-            i++;
-        }
-          in.close();
+                if (i == 4) {
+                    muistiinpano.setViinialue(rivi);
+                }
+
+                if (i == 5) {
+                    muistiinpano.setRypaleet(rivi);
+                }
+
+                if (i == 6) {
+                    muistiinpano.setArvioViinista(Integer.parseInt(rivi));
+                }
+
+                if (i == 7) {
+                    muistiinpano.setVapaaKuvausMuistiinpanoon(rivi);
+                }
+
+                i++;
+            }
+            in.close();
         } catch (IOException ex) {
             return null;
         }
-    return muistiinpano;
-}
+        return muistiinpano;
+    }
 }

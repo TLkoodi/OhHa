@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package viinimuistio.tiedostojenkasittely;
 
 import org.junit.After;
@@ -20,22 +19,22 @@ import static org.junit.Assert.*;
  * @author Tony
  */
 public class TekstitiedostonTallentajaTest {
-    
+
     public TekstitiedostonTallentajaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
         String nimi = "testitiedosto";
@@ -66,14 +65,13 @@ public class TekstitiedostonTallentajaTest {
         boolean vastaus = tallentaja.kirjoitaOlemassaOlevaanTiedostoon(nimi, kirjoitettava);
         assertEquals(true, vastaus);
     }
-    
+
     @Test
-    public void poistaaTiedoston(){
+    public void poistaaTiedoston() {
         String nimi = "testitiedosto2";
         TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
         tallentaja.luoUusiTiedosto(nimi, "popop");
         boolean vastaus = tallentaja.poistaTiedosto(nimi);
         assertEquals(true, vastaus);
     }
-    
 }

@@ -100,7 +100,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
     @Override
     public String getTuotteenNimi() {
         if (tuotteenNimi == null) {
-            return "Nimeämätön tuote";
+            return "tuntematon";
         }
         return tuotteenNimi;
     }

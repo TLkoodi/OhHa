@@ -19,22 +19,22 @@ import viinimuistio.tiedostojenkasittely.TekstitiedostonTallentaja;
  * @author admin
  */
 public class MuistiinpanonTallentajaTest {
-    
+
     public MuistiinpanonTallentajaTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
         String nimi = "testitiedosto";
@@ -43,11 +43,12 @@ public class MuistiinpanonTallentajaTest {
     }
 
     /**
-     * Test of tallennaUusiMuistiinpano method, of class MuistiinpanonTallentaja.
+     * Test of tallennaUusiMuistiinpano method, of class
+     * MuistiinpanonTallentaja.
      */
     @Test
     public void tallentaaUudenMuistiinpanon() {
-        String nimi = "testitiedosto";        
+        String nimi = "testitiedosto";
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         muistiinpano.setTuotteenNimi("testitiedosto");
         MuistiinpanonTallentaja tallentaja = new MuistiinpanonTallentaja(muistiinpano);

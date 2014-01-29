@@ -13,11 +13,11 @@ public class TekstitiedostonTallentaja {
 
     public boolean luoUusiTiedosto(String tiedostolleTulevaNimi, String tiedostoonKirjoitettavaTeksti) {
         String tiedostonNimi = tiedostolleTulevaNimi + ".txt";
-            File tiedosto = new File(tiedostonNimi);
-            if (tiedosto.exists()) {
-                return false;
-            }
-            return kirjoitaOlemassaOlevaanTiedostoon(tiedostolleTulevaNimi, tiedostoonKirjoitettavaTeksti);
+        File tiedosto = new File(tiedostonNimi);
+        if (tiedosto.exists()) {
+            return false;
+        }
+        return kirjoitaOlemassaOlevaanTiedostoon(tiedostolleTulevaNimi, tiedostoonKirjoitettavaTeksti);
 
     }
 
@@ -44,7 +44,6 @@ public class TekstitiedostonTallentaja {
             tiedosto.delete();
             return true;
         } catch (Exception e) {
-
         }
         return false;
     }

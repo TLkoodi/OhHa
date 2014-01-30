@@ -6,3 +6,4 @@
 21.1.2014 - 1,5h - tiedonhakua
 22.1.2014 - 2h - luotu tiedostonkäsittelyluokka ja pari testiä
 29.1.2014 - 6h - päivitetty luokkia, tehty tiedostonlukija, hakattu koodia
+30.1.2014 - 2h - luokkakaaviota yms.

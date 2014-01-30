@@ -5,7 +5,6 @@
  */
 package viinimuistio.domain;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.String;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -28,10 +28,12 @@ public class ViiniMuistiinpano implements Muistiinpano {
     public void setViinityyppi(Viinityyppi viinityyppi) {
         this.viinityyppi = viinityyppi;
     }
-
+   
     public ViiniMuistiinpano(String nimi) {
-        
+     this.tuotteenNimi = nimi;
+     this.onkoVuosikerta = false;
     }
+    
     public ViiniMuistiinpano() {
         this.onkoVuosikerta = false;
     }
@@ -158,7 +160,6 @@ public class ViiniMuistiinpano implements Muistiinpano {
     public int getMuistiinpanonVuosi() {
         return muistiinpanonVuosi;
     }
-    
     
     public String getViinityyppi() {
         if (viinityyppi == null) {

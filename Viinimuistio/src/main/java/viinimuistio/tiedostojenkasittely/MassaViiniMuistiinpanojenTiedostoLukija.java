@@ -11,17 +11,17 @@ import java.util.List;
 import viinimuistio.domain.Muistiinpano;
 import viinimuistio.domain.ViiniMuistiinpano;
 
-public class MassaMuistiinpanojenTiedostoLukija {
+public class MassaViiniMuistiinpanojenTiedostoLukija {
     
-    List<String> tiedostolista;
+    private List<String> tiedostolista;
     
-    public MassaMuistiinpanojenTiedostoLukija(){
+    public MassaViiniMuistiinpanojenTiedostoLukija(){
         TiedostojenListaaja listaaja = new TiedostojenListaaja();
         tiedostolista = listaaja.listaaKansionTiedostot();
     }
     
     public List<ViiniMuistiinpano> luoListaltaMuistiinpanotListaksi(){
-        MuistiinpanonTiedostoLukija lukija = new MuistiinpanonTiedostoLukija();
+        ViiniMuistiinpanonTiedostoLukija lukija = new ViiniMuistiinpanonTiedostoLukija();
         List<ViiniMuistiinpano> muistiinpanot = new ArrayList<ViiniMuistiinpano>();
         for (String tiedosto : tiedostolista){
             lukija.asetaTiedosto(tiedosto);

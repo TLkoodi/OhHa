@@ -8,7 +8,7 @@ import viinimuistio.domain.Muistiinpano;
 
 public class MuistiinpanonTallentaja {
 
-    Muistiinpano muistiinpano;
+    private Muistiinpano muistiinpano;
 
     public MuistiinpanonTallentaja(Muistiinpano muistiinpano) {
         this.muistiinpano = muistiinpano;
@@ -16,6 +16,6 @@ public class MuistiinpanonTallentaja {
 
     public boolean tallennaUusiMuistiinpano() {
         TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
-        return tallentaja.luoUusiTiedosto(muistiinpano.getTuotteenNimi(), muistiinpano.muistiinpanonTiedotStringiin());
+        return tallentaja.luoUusiTiedosto(muistiinpano.getTuotteenNimi(), muistiinpano.toString());
     }
 }

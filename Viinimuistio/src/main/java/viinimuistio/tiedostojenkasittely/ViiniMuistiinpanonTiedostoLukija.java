@@ -15,12 +15,12 @@ import viinimuistio.domain.ViiniMuistiinpano;
  *
  * @author admin
  */
-public class MuistiinpanonTiedostoLukija {
+public class ViiniMuistiinpanonTiedostoLukija {
 
-    BufferedReader lukija;
-    String tiedostoNimi;
+    private BufferedReader lukija;
+    private String tiedostoNimi;
 
-    public MuistiinpanonTiedostoLukija() {
+    public ViiniMuistiinpanonTiedostoLukija() {
     }
 
     public String getTiedostoNimi() {
@@ -60,18 +60,11 @@ public class MuistiinpanonTiedostoLukija {
 
             while ((rivi = lukija.readLine()) != null) {
 
-
-                System.out.println(rivi);
-
-
-
                 if (i == 0) {
-                    System.out.println(rivi);
 
                 }
 
                 if (i == 1) {
-                    System.out.println(rivi);
                     muistiinpano.setTuotteenNimi(rivi);
                 }
 

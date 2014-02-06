@@ -23,7 +23,6 @@ public class TiedostojenListaaja {
 
     public List listaaKansionTiedostot() {
         File[] tiedostot = new File("./muistiot").listFiles();
-        System.out.println(tiedostot.length);
 
         List<String> tulokset = new ArrayList<String>();
 

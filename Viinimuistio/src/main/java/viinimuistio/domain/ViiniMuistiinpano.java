@@ -182,7 +182,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
     }
 
     @Override
-    public String muistiinpanonTiedotStringiin() {
+    public String toString() {
         String palautus = "";
         String uusiRivi = System.getProperty("line.separator");
 

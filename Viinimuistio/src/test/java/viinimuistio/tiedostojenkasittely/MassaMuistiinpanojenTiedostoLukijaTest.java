@@ -53,7 +53,7 @@ public class MassaMuistiinpanojenTiedostoLukijaTest {
      */
     @Test
     public void LuoListaltaMuistiinpanotListaksi() {
-        MassaMuistiinpanojenTiedostoLukija lukija = new MassaMuistiinpanojenTiedostoLukija();
+        MassaViiniMuistiinpanojenTiedostoLukija lukija = new MassaViiniMuistiinpanojenTiedostoLukija();
         List<ViiniMuistiinpano> lista = lukija.luoListaltaMuistiinpanotListaksi();
         int lukumaara = lista.size();
         

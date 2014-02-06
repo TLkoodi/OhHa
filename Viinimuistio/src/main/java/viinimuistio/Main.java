@@ -9,6 +9,9 @@ import viinimuistio.tiedostojenkasittely.*;
  *
  */
 public class Main {
+    
+    // Jos testit eivät mene läpi, kokeile uudelleen (tai tyhjennä "muistiot"-kansio), välillä tiedostot jäävät kansioihin kummittelemaan
+    // ja haittaavat testejä jotka tarkastelevat tiedostojen olemassaoloa
 
     public static void main(String[] args) {
         TiedostojenListaaja lukija = new TiedostojenListaaja();

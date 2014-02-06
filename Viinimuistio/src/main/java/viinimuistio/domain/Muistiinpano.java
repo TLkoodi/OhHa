@@ -10,5 +10,5 @@ public interface Muistiinpano {
 
     String getVapaaKuvausMuistiinpanoon();
 
-    String muistiinpanonTiedotStringiin();
+    String toString();
 }

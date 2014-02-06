@@ -12,15 +12,15 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import viinimuistio.domain.ViiniMuistiinpano;
 import viinimuistio.domain.Viinityyppi;
-import viinimuistio.tiedostojenkasittely.MuistiinpanonTiedostoLukija;
+import viinimuistio.tiedostojenkasittely.ViiniMuistiinpanonTiedostoLukija;
 
 /**
  *
  * @author admin
  */
-public class MuistiinpanonTiedostoLukijaTest {
+public class ViiniMuistiinpanonTiedostoLukijaTest {
 
-    public MuistiinpanonTiedostoLukijaTest() {
+    public ViiniMuistiinpanonTiedostoLukijaTest() {
     }
 
     @BeforeClass
@@ -47,7 +47,7 @@ public class MuistiinpanonTiedostoLukijaTest {
      */
     @Test
     public void asettaaTiedostonimen() {
-        MuistiinpanonTiedostoLukija lukija = new MuistiinpanonTiedostoLukija();
+        ViiniMuistiinpanonTiedostoLukija lukija = new ViiniMuistiinpanonTiedostoLukija();
         lukija.asetaTiedosto("testitiedosto");
         String vastaus = lukija.getTiedostoNimi();
 
@@ -59,7 +59,7 @@ public class MuistiinpanonTiedostoLukijaTest {
      */
     @Test
     public void tuoViiniTiedostoLukeeTiedostonJaTekeeSiitaLuokanIlmentyman() {
-        MuistiinpanonTiedostoLukija lukija = new MuistiinpanonTiedostoLukija();
+        ViiniMuistiinpanonTiedostoLukija lukija = new ViiniMuistiinpanonTiedostoLukija();
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         muistiinpano.setTuotteenNimi("testitiedosto");
         muistiinpano.setViinityyppi("Kuohuviini");

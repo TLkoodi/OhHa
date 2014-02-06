@@ -11,6 +11,8 @@ import viinimuistio.tiedostojenkasittely.*;
 public class Main {
 
     public static void main(String[] args) {
-
+        TiedostojenListaaja lukija = new TiedostojenListaaja();
+        lukija.listaaKansionTiedostot();
+        
     }
 }

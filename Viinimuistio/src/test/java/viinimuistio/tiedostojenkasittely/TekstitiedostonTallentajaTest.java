@@ -42,9 +42,6 @@ public class TekstitiedostonTallentajaTest {
         tallentaja.poistaTiedosto(nimi);
     }
 
-    /**
-     * Test of luoTiedosto method, of class MuistiinpanojenTallentaja.
-     */
     @Test
     public void LuoUudenTiedoston() {
         String nimi = "testitiedosto";
@@ -53,9 +50,6 @@ public class TekstitiedostonTallentajaTest {
         assertEquals(true, vastaus);
     }
 
-    /**
-     * Test of kirjoitaTiedostoon method, of class MuistiinpanojenTallentaja.
-     */
     @Test
     public void kirjoittaaOlemassaOlevaanTiedostoon() {
         String nimi = "testitiedosto";

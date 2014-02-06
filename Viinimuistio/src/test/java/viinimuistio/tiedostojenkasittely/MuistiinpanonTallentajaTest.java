@@ -42,10 +42,7 @@ public class MuistiinpanonTallentajaTest {
         tallentaja.poistaTiedosto(nimi);
     }
 
-    /**
-     * Test of tallennaUusiMuistiinpano method, of class
-     * MuistiinpanonTallentaja.
-     */
+    
     @Test
     public void tallentaaUudenMuistiinpanon() {
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();

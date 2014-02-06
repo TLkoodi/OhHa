@@ -9,8 +9,8 @@ import java.util.*;
 import viinimuistio.domain.ViiniMuistiinpano;
 
 /**
- *
- * @author lexlex@cs
+ * Hakee muistiinpanoista käyttäjän haluamia arvoja, kuten hakusanoja.
+ * @author TLKoodi
  */
 public class ViiniMuistiinpanoAnalyysi {
 

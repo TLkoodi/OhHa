@@ -42,9 +42,6 @@ public class ViiniMuistiinpanonTiedostoLukijaTest {
         tallentaja.poistaTiedosto(nimi);
     }
 
-    /**
-     * Test of asetaTiedosto method, of class MuistiinpanonTiedostoLukija.
-     */
     @Test
     public void asettaaTiedostonimen() {
         ViiniMuistiinpanonTiedostoLukija lukija = new ViiniMuistiinpanonTiedostoLukija();
@@ -54,9 +51,6 @@ public class ViiniMuistiinpanonTiedostoLukijaTest {
         assertEquals("testitiedosto.txt", vastaus);
     }
 
-    /**
-     * Test of tuoViiniTiedosto method, of class MuistiinpanonTiedostoLukija.
-     */
     @Test
     public void tuoViiniTiedostoLukeeTiedostonJaTekeeSiitaLuokanIlmentyman() {
         ViiniMuistiinpanonTiedostoLukija lukija = new ViiniMuistiinpanonTiedostoLukija();

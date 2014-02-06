@@ -6,8 +6,11 @@
 package viinimuistio.domain;
 
 /**
+ * Viinimuistiinpano sisältää attribuutit jotka muistiinpanoon tulevat, luokka sisältää lähinnä settereitä ja gettereitä erilaisille arvoille, sekä toiminnallisuus tietojen helppoon siirtoon muille luokille.
+ * Totuttaa rajapinnan "Muistiinpano"
+ * @author TLKoodi
+ * 
  *
- * @author Tony
  */
 public class ViiniMuistiinpano implements Muistiinpano {
 

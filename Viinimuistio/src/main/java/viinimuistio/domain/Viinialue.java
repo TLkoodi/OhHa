@@ -1,8 +1,8 @@
 package viinimuistio.domain;
 
 /**
- *
- * @author Tony
+ * Sisältää mahdolliset Viinialueet Viinimuistiinpanoon
+ * @author TLKoodi
  */
 public enum Viinialue {
 

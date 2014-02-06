@@ -4,7 +4,13 @@
  */
 package viinimuistio.tiedostojenkasittely;
 
+
 import viinimuistio.domain.Muistiinpano;
+
+/**
+ * Tallentaa konstruktorissa annetun muistiinpanon tiedostoon.
+ * @author TLKoodi
+ */
 
 public class MuistiinpanonTallentaja {
 

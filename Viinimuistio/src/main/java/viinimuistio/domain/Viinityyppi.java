@@ -6,8 +6,8 @@
 package viinimuistio.domain;
 
 /**
- *
- * @author lexlex
+ * Sisältää mahdolliset viinityypit Viinimuistiinpanoon
+ * @author TLKoodi
  */
 public enum Viinityyppi {
 

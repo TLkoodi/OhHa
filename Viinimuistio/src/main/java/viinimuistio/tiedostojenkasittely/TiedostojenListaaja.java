@@ -12,8 +12,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- *
- * @author lexlex@cs
+ * Listaa "muistiot"-kansion tiedostot muille luokille käsiteltäväksi.
+ * 
+ * @author TLKoodi
  */
 public class TiedostojenListaaja {
 

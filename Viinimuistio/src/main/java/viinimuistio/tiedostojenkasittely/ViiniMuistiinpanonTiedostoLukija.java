@@ -12,8 +12,8 @@ import java.io.InputStreamReader;
 import viinimuistio.domain.ViiniMuistiinpano;
 
 /**
- *
- * @author admin
+ * Lukee tekstitiedoston rivit ja muodostaa niistä Viinimuistiinpanon.
+ * @author TLKoodi
  */
 public class ViiniMuistiinpanonTiedostoLukija {
 

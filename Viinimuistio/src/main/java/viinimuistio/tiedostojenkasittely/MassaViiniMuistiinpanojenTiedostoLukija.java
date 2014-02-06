@@ -1,15 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package viinimuistio.tiedostojenkasittely;
+
+
 
 import java.util.ArrayList;
 import java.util.List;
 import viinimuistio.domain.Muistiinpano;
 import viinimuistio.domain.ViiniMuistiinpano;
+
+/**
+ * Luokka hyväksikäyttää Tiedostojenlistaajaa ja ViiniMuistiinpanonTiedostoLukijaa muodostaakseen tiedostoista listan muistiinpanoja, joita voi jatkokäsitellä muissa luokissa.
+ * @author TLKoodi
+ */
 
 public class MassaViiniMuistiinpanojenTiedostoLukija {
     

@@ -48,9 +48,6 @@ public class MassaMuistiinpanojenTiedostoLukijaTest {
         tallentaja.poistaTiedosto("listaustesti3");
     }
 
-    /**
-     * Test of luoListaltaMuistiinpanotListaksi method, of class MassaMuistiinpanojenTiedostoLukija.
-     */
     @Test
     public void LuoListaltaMuistiinpanotListaksi() {
         MassaViiniMuistiinpanojenTiedostoLukija lukija = new MassaViiniMuistiinpanojenTiedostoLukija();

@@ -57,9 +57,7 @@ public class ViiniMuistiinpanoAnalyysiTest {
         tallentaja.poistaTiedosto("testitiedosto2");
     }
 
-    /**
-     * Test of haeHakusanaaMuistiinpanoista method, of class ViiniMuistiinpanoAnalyysi.
-     */
+    
     @Test
     public void sisaltaakoTunnistaaStringSisaltymisen() {
         ViiniMuistiinpanoAnalyysi analyysi = new ViiniMuistiinpanoAnalyysi();

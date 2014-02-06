@@ -24,19 +24,15 @@ public class ViiniMuistiinpano implements Muistiinpano {
     private String luettuMuistiinpanonPaivamaara;
     private boolean onkoVuosikerta;
 
-<<<<<<< HEAD
-    public Viinityyppi getViinityyppi() {
-        return viinityyppi;
-    }
 
     public void setViinityyppi(Viinityyppi viinityyppi) {
         this.viinityyppi = viinityyppi;
     }
 
     public ViiniMuistiinpano(String nimi) {
-=======
+        
+    }
     public ViiniMuistiinpano() {
->>>>>>> d0df2c376c4b7794b4bc7926c893cdba8b81762c
         this.onkoVuosikerta = false;
     }
 
@@ -159,9 +155,11 @@ public class ViiniMuistiinpano implements Muistiinpano {
         return muistiinpanonKuukausi;
     }
 
-<<<<<<< HEAD
     public int getMuistiinpanonVuosi() {
-=======
+        return muistiinpanonVuosi;
+    }
+    
+    
     public String getViinityyppi() {
         if (viinityyppi == null) {
             return null;
@@ -179,7 +177,6 @@ public class ViiniMuistiinpano implements Muistiinpano {
     }
 
     public int getVuosi() {
->>>>>>> d0df2c376c4b7794b4bc7926c893cdba8b81762c
         return muistiinpanonVuosi;
     }
 

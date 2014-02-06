@@ -13,14 +13,15 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import viinimuistio.domain.ViiniMuistiinpano;
 
 /**
  *
  * @author lexlex@cs
  */
-public class TiedostojenListaajaTest {
+public class MassaMuistiinpanojenTiedostoLukijaTest {
     
-    public TiedostojenListaajaTest() {
+    public MassaMuistiinpanojenTiedostoLukijaTest() {
     }
     
     @BeforeClass
@@ -32,10 +33,11 @@ public class TiedostojenListaajaTest {
     }
     
     @Before
-    public void setUp() {        
+    public void setUp() {
         TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
         tallentaja.luoUusiTiedosto("listaustesti1", "");
         tallentaja.luoUusiTiedosto("listaustesti2", "");
+        tallentaja.luoUusiTiedosto("listaustesti3", "");
     }
     
     @After
@@ -43,15 +45,19 @@ public class TiedostojenListaajaTest {
         TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
         tallentaja.poistaTiedosto("listaustesti1");
         tallentaja.poistaTiedosto("listaustesti2");
+        tallentaja.poistaTiedosto("listaustesti3");
     }
 
-    
+    /**
+     * Test of luoListaltaMuistiinpanotListaksi method, of class MassaMuistiinpanojenTiedostoLukija.
+     */
     @Test
-    public void ListaaKansionTiedostot() {
-        TiedostojenListaaja lukija = new TiedostojenListaaja();
+    public void LuoListaltaMuistiinpanotListaksi() {
+        MassaMuistiinpanojenTiedostoLukija lukija = new MassaMuistiinpanojenTiedostoLukija();
+        List<ViiniMuistiinpano> lista = lukija.luoListaltaMuistiinpanotListaksi();
+        int lukumaara = lista.size();
         
-        int lukumaara = lukija.listaaKansionTiedostot().size();
-        
-        assertEquals(2, lukumaara);
+        assertEquals(3, lukumaara);
+    }
     
-}}
+}

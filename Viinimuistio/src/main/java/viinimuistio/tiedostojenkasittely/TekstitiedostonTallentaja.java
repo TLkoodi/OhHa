@@ -13,7 +13,7 @@ public class TekstitiedostonTallentaja {
 
     public boolean luoUusiTiedosto(String tiedostolleTulevaNimi, String tiedostoonKirjoitettavaTeksti) {
         String tiedostonNimi = tiedostolleTulevaNimi + ".txt";
-        File tiedosto = new File(tiedostonNimi);
+        File tiedosto = new File("./muistiot/" + tiedostonNimi);
         if (tiedosto.exists()) {
             return false;
         }
@@ -23,7 +23,7 @@ public class TekstitiedostonTallentaja {
 
     public boolean kirjoitaOlemassaOlevaanTiedostoon(String tiedostolleTulevaNimi, String tiedostoonKirjoitettavaTeksti) {
         String tiedostonNimi = tiedostolleTulevaNimi + ".txt";
-        File tiedosto = new File(tiedostonNimi);
+        File tiedosto = new File("./muistiot/" + tiedostonNimi);
         try {
             BufferedWriter kirjoittaja = new BufferedWriter(new FileWriter(tiedosto));
             kirjoittaja.write(tiedostoonKirjoitettavaTeksti);
@@ -37,7 +37,7 @@ public class TekstitiedostonTallentaja {
     public boolean poistaTiedosto(String nimi) {
         String tiedostonNimi = nimi + ".txt";
         try {
-            File tiedosto = new File(tiedostonNimi);
+            File tiedosto = new File("./muistiot/" + tiedostonNimi);
             if (!tiedosto.exists()) {
                 return false;
             }

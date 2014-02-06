@@ -48,7 +48,6 @@ public class MuistiinpanonTallentajaTest {
      */
     @Test
     public void tallentaaUudenMuistiinpanon() {
-        String nimi = "testitiedosto";
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
         muistiinpano.setTuotteenNimi("testitiedosto");
         MuistiinpanonTallentaja tallentaja = new MuistiinpanonTallentaja(muistiinpano);

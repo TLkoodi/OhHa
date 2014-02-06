@@ -49,7 +49,7 @@ public class MuistiinpanonTiedostoLukija {
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
 
         try {
-            FileInputStream fstream = new FileInputStream(tiedostoNimi);
+            FileInputStream fstream = new FileInputStream("./muistiot/" + tiedostoNimi);
             DataInputStream in = new DataInputStream(fstream);
             lukija = new BufferedReader(new InputStreamReader(in));
 

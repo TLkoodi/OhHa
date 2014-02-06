@@ -25,6 +25,7 @@ Mahdollisia hakukriteerejä muistiinpanojen hakuvaiheessa (Ei valmis):
 - Vuosikerta
 
 Hahmottamisen helpottamiseksi suunniteltu järjestys tiedostoon tallennetuille muistiinpanon arvoille (yksi arvo per rivi):
+0.Tunniste (Onko Viini, Olut, vai joku muu muistio)
 1.Viinin nimi
 2.Viinin maistamishetki (muodossa DD.MM.YYYY)
 3.Viinityyppi (ENUM: Puna, Valko, Kuohu, Port, Jalkiruoka, Muu)
@@ -32,3 +33,4 @@ Hahmottamisen helpottamiseksi suunniteltu järjestys tiedostoon tallennetuille m
 5.Viinissä käytetyt rypäleet (VAPAA TEKSTI)
 6.Arvio viinistä (INT 0..5, voidaan mieltää "montako tähteä tälle viinille")
 7.kuvaus, omaa tekstiä, kokemusta, lisätietoja, yms. (VAPAA TEKSTI)
+8.Viinin vuosikerta

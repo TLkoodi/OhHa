@@ -11,18 +11,20 @@ package viinimuistio.domain;
  */
 public class ViiniMuistiinpano implements Muistiinpano {
 
-    private String tuotteenNimi;    
-    private Viinityyppi viinityyppi;    
-    private Viinialue viinialue;    
+    private String tuotteenNimi;
+    private Viinityyppi viinityyppi;
+    private Viinialue viinialue;
     private String rypaleet;
     private int vuosikerta;
     private int arvioViinista;
-    private String vapaaKuvausMuistiinpanoon = "";    
+    private String vapaaKuvausMuistiinpanoon = "";
     private int muistiinpanonPaiva = 1;
     private int muistiinpanonKuukausi = 1;
-    private int muistiinpanonVuosi = 2014;    
+    private int muistiinpanonVuosi = 2014;
+    private String luettuMuistiinpanonPaivamaara;
     private boolean onkoVuosikerta;
 
+<<<<<<< HEAD
     public Viinityyppi getViinityyppi() {
         return viinityyppi;
     }
@@ -32,11 +34,16 @@ public class ViiniMuistiinpano implements Muistiinpano {
     }
 
     public ViiniMuistiinpano(String nimi) {
+=======
+    public ViiniMuistiinpano() {
+>>>>>>> d0df2c376c4b7794b4bc7926c893cdba8b81762c
         this.onkoVuosikerta = false;
-        this.tuotteenNimi = nimi;
     }
 
     public String getRypaleet() {
+        if (rypaleet == null) {
+            return "Ei määritelty";
+        }
         return rypaleet;
     }
 
@@ -57,8 +64,12 @@ public class ViiniMuistiinpano implements Muistiinpano {
         }
     }
 
-    public void setViinialue(Viinialue asetettavaAlue) {
-        viinialue = asetettavaAlue;
+    public void setViinialue(String asetettavaAlue) {
+        try {
+            this.viinialue = Viinialue.valueOf(asetettavaAlue);
+        } catch (Exception e) {
+            this.viinialue = Viinialue.Ei_asetettu;
+        }
     }
 
     public String getViinialue() {
@@ -100,6 +111,9 @@ public class ViiniMuistiinpano implements Muistiinpano {
 
     @Override
     public String getTuotteenNimi() {
+        if (tuotteenNimi == null) {
+            return "tuntematon";
+        }
         return tuotteenNimi;
     }
 
@@ -109,7 +123,14 @@ public class ViiniMuistiinpano implements Muistiinpano {
 
     @Override
     public String getMuistiinpanoPaivamaara() {
+        if (luettuMuistiinpanonPaivamaara != null) {
+            return luettuMuistiinpanonPaivamaara;
+        }
         return muistiinpanonPaiva + "." + muistiinpanonKuukausi + "." + muistiinpanonVuosi;
+    }
+
+    public void setMuistiinpanonPaivamaara(String luettuPaiva) {
+        luettuMuistiinpanonPaivamaara = luettuPaiva;
     }
 
     public void setMuistiinpanonPaiva(int asetettavaPaiva) {
@@ -138,8 +159,56 @@ public class ViiniMuistiinpano implements Muistiinpano {
         return muistiinpanonKuukausi;
     }
 
+<<<<<<< HEAD
     public int getMuistiinpanonVuosi() {
+=======
+    public String getViinityyppi() {
+        if (viinityyppi == null) {
+            return null;
+        }
+        String palautus = "" + viinityyppi;
+        return palautus;
+    }
+
+    public void setViinityyppi(String viinityyppi) {
+        try {
+            this.viinityyppi = Viinityyppi.valueOf(viinityyppi);
+        } catch (Exception e) {
+            this.viinityyppi = Viinityyppi.Ei_asetettu;
+        }
+    }
+
+    public int getVuosi() {
+>>>>>>> d0df2c376c4b7794b4bc7926c893cdba8b81762c
         return muistiinpanonVuosi;
     }
 
+    @Override
+    public String muistiinpanonTiedotStringiin() {
+        String palautus = "";
+        String uusiRivi = System.getProperty("line.separator");
+
+        palautus += getTunniste() + uusiRivi;
+        palautus += getTuotteenNimi() + uusiRivi;
+        palautus += getMuistiinpanoPaivamaara() + uusiRivi;
+
+        //Voi olla null
+        palautus += getViinityyppi() + uusiRivi;
+
+        palautus += getViinialue() + uusiRivi;
+        palautus += getRypaleet() + uusiRivi;
+
+        //Voi olla null
+        palautus += getArvioViinista() + uusiRivi;
+
+        palautus += getVapaaKuvausMuistiinpanoon();
+        palautus += getVuosikerta();
+        
+        return palautus;
+    }
+
+    @Override
+    public String getTunniste() {
+        return "viini";
+    }
 }

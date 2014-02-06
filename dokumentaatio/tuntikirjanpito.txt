@@ -7,3 +7,5 @@
 22.1.2014 - 2h - luotu tiedostonk‰sittelyluokka ja pari testi‰
 22.1.2014 - 1,5h - lis‰tty lis‰‰ testej‰ ja generoitu pit-raportti
 23.1.2014 - 1h - pajassa koodailua, keskustelua ohjaajien kanssa ja pient‰ parantelua
+29.1.2014 - 6h - p‰ivitetty luokkia, tehty tiedostonlukija, hakattu koodia
+30.1.2014 - 2h - luokkakaaviota yms.

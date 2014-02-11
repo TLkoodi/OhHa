@@ -8,6 +8,7 @@ package viinimuistio.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import viinimuistio.domain.ViiniMuistiinpano;
 import viinimuistio.tiedostojenkasittely.MuistiinpanonTallentaja;
@@ -26,8 +27,9 @@ public class KenttienTallentaja implements ActionListener {
     private JTextArea rypaleetTextArea;
     private JTextArea arvioTextArea;
     private JTextArea kuvausTextArea;
+    private JTextArea viiniAlue;
 
-    public KenttienTallentaja(JTextArea nimiTextArea, JTextArea maistamishetkiTextArea, JTextArea viinityyppiTextArea, JTextArea vuosikertaTextArea, JTextArea viinialueTextArea, JTextArea rypaleetTextArea, JTextArea arvioTextArea, JTextArea kuvausTextArea) {
+    public KenttienTallentaja(JTextArea nimiTextArea, JTextArea maistamishetkiTextArea, JTextArea viinityyppiTextArea, JTextArea vuosikertaTextArea, JTextArea viinialueTextArea, JTextArea rypaleetTextArea, JTextArea arvioTextArea, JTextArea kuvausTextArea, JTextArea viiniAlue) {
         this.nimiTextArea = nimiTextArea;
         this.maistamishetkiTextArea = maistamishetkiTextArea;
         this.viinityyppiTextArea = viinityyppiTextArea;
@@ -36,13 +38,13 @@ public class KenttienTallentaja implements ActionListener {
         this.rypaleetTextArea = rypaleetTextArea;
         this.arvioTextArea = arvioTextArea;
         this.kuvausTextArea = kuvausTextArea;
+        this.viiniAlue = viiniAlue;
     }
     
     
     @Override
     public void actionPerformed(ActionEvent e) {
         ViiniMuistiinpano viinimuistiinpano = new ViiniMuistiinpano(nimiTextArea.getText());
-        
         viinimuistiinpano.setMuistiinpanonPaivamaara(maistamishetkiTextArea.getText());
         viinimuistiinpano.setViinityyppi(viinityyppiTextArea.getText());
         viinimuistiinpano.setVuosikertaStringina(vuosikertaTextArea.getText());
@@ -50,7 +52,6 @@ public class KenttienTallentaja implements ActionListener {
         viinimuistiinpano.setRypaleet(rypaleetTextArea.getText());
         viinimuistiinpano.setArvioViinistaStringina(arvioTextArea.getText());
         viinimuistiinpano.setVapaaKuvausMuistiinpanoon(kuvausTextArea.getText());
-        
         MuistiinpanonTallentaja muistiinpanonTallentaja = new MuistiinpanonTallentaja(viinimuistiinpano);
         muistiinpanonTallentaja.tallennaUusiMuistiinpano();
     }

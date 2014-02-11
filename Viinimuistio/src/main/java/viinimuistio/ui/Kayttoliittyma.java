@@ -3,9 +3,15 @@ package viinimuistio.ui;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
@@ -30,13 +36,15 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        GridLayout layout = new GridLayout(17, 1);
+
+        GridLayout layout = new GridLayout(18, 1);
         container.setLayout(layout);
-        
+
+
         JLabel nimiLabel = new JLabel("Tuotteen nimi:");
         JTextArea nimiTextArea = new JTextArea();
         JLabel maistamishetkiLabel = new JLabel("Tuotteen maistamishetki (muodossa DD.MM.YYYY):");
-        JTextArea maistamishetkiTextArea = new JTextArea();   
+        JTextArea maistamishetkiTextArea = new JTextArea();
         JLabel viinityyppiLabel = new JLabel("Viinityyppi:");
         JTextArea viinityyppiTextArea = new JTextArea();
         JLabel vuosikertaLabel = new JLabel("Vuosikerta:");
@@ -50,12 +58,24 @@ public class Kayttoliittyma implements Runnable {
         JLabel kuvausLabel = new JLabel("Vapaa teksti:");
         JTextArea kuvausTextArea = new JTextArea();
         
+        String[] viiniAlueVaihtoehdot = {"Ranska", "Saksa", "Italia", "Espanja", "Chile", "Yhdysvallat", "Itävalta", "Argenttiina", "EtelaAfrikka", "Portugali", "UusiSeelanti", "Australia", "Muu", "Ei_asetettu"};
+        final JTextArea valittuViiniAlue = new JTextArea();
+        
+        final JComboBox viiniAlueet = new JComboBox(viiniAlueVaihtoehdot);
+        viiniAlueet.addItemListener(
+                new ItemListener(){
+        public void itemStateChanged(ItemEvent event){
+            if (event.getStateChange()==ItemEvent.SELECTED)
+                valittuViiniAlue.setText((String)viiniAlueet.getSelectedItem());
+        }
+    }
+);
+        
         JButton tallennusnappi = new JButton("Tallenna muistiinpano");
-        
-        KenttienTallentaja tallentaja = new KenttienTallentaja(nimiTextArea, maistamishetkiTextArea, viinityyppiTextArea, vuosikertaTextArea, viinialueTextArea, rypaleetTextArea, arvioTextArea, kuvausTextArea);
+
+        KenttienTallentaja tallentaja = new KenttienTallentaja(nimiTextArea, maistamishetkiTextArea, viinityyppiTextArea, vuosikertaTextArea, viinialueTextArea, rypaleetTextArea, arvioTextArea, kuvausTextArea, valittuViiniAlue);
         tallennusnappi.addActionListener(tallentaja);
-        
-        
+
         container.add(nimiLabel);
         container.add(nimiTextArea);
         container.add(maistamishetkiLabel);
@@ -72,6 +92,7 @@ public class Kayttoliittyma implements Runnable {
         container.add(arvioTextArea);
         container.add(kuvausLabel);
         container.add(kuvausTextArea);
+        container.add(viiniAlueet);
         container.add(tallennusnappi);
     }
 

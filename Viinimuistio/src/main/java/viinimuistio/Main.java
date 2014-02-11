@@ -1,8 +1,10 @@
 package viinimuistio;
 
+import javax.swing.SwingUtilities;
 import viinimuistio.domain.ViiniMuistiinpano;
 import static viinimuistio.domain.Viinialue.*;
 import viinimuistio.tiedostojenkasittely.*;
+import viinimuistio.ui.Kayttoliittyma;
 
 /**
  * Hello world!
@@ -19,8 +21,8 @@ public class Main {
      */
     
     public static void main(String[] args) {
-        TiedostojenListaaja lukija = new TiedostojenListaaja();
-        lukija.listaaKansionTiedostot();
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
+        SwingUtilities.invokeLater(kayttoliittyma);
         
     }
 }

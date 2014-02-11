@@ -66,7 +66,7 @@ public class ViiniMuistiinpanoTest {
 
         muistiinpano.setMuistiinpanonVuosi(2000);
 
-        int vastaus = muistiinpano.getVuosi();
+        int vastaus = muistiinpano.getMuistiinpanonVuosi();
 
         assertEquals(2000, vastaus);
     }
@@ -77,9 +77,9 @@ public class ViiniMuistiinpanoTest {
 
         muistiinpano.setMuistiinpanonVuosi(2020);
 
-        Integer vastaus = muistiinpano.getVuosikerta();
+        int vastaus = muistiinpano.getVuosikerta();
 
-        assertEquals(null, vastaus);
+        assertEquals(0, vastaus);
     }
 
     @Test
@@ -88,18 +88,18 @@ public class ViiniMuistiinpanoTest {
 
         muistiinpano.setMuistiinpanonVuosi(1620);
 
-        Integer vastaus = muistiinpano.getVuosikerta();
+        int vastaus = muistiinpano.getVuosikerta();
 
-        assertEquals(null, vastaus);
+        assertEquals(0, vastaus);
     }
 
     @Test
-    public void vuosikertaAluksiNull() {
+    public void vuosikertaAluksiNolla() {
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
 
-        Integer vastaus = muistiinpano.getVuosikerta();
+        int vastaus = muistiinpano.getVuosikerta();
 
-        assertEquals(null, vastaus);
+        assertEquals(0, vastaus);
     }
 
     @Test
@@ -183,7 +183,7 @@ public class ViiniMuistiinpanoTest {
 
         muistiinpano.setMuistiinpanonVuosi(2111);
 
-        int vastaus = muistiinpano.getVuosi();
+        int vastaus = muistiinpano.getMuistiinpanonVuosi();
 
         assertEquals(2014, vastaus);
     }
@@ -194,7 +194,7 @@ public class ViiniMuistiinpanoTest {
 
         muistiinpano.setMuistiinpanonVuosi(1600);
 
-        int vastaus = muistiinpano.getVuosi();
+        int vastaus = muistiinpano.getMuistiinpanonVuosi();
 
         assertEquals(2014, vastaus);
     }
@@ -205,7 +205,7 @@ public class ViiniMuistiinpanoTest {
 
         muistiinpano.setMuistiinpanonVuosi(1989);
 
-        int vastaus = muistiinpano.getVuosi();
+        int vastaus = muistiinpano.getMuistiinpanonVuosi();
 
         assertEquals(1989, vastaus);
     }

@@ -28,9 +28,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
     private boolean onkoVuosikerta;
 
 
-    public void setViinityyppi(Viinityyppi viinityyppi) {
-        this.viinityyppi = viinityyppi;
-    }
+    
    
     public ViiniMuistiinpano(String nimi) {
      this.tuotteenNimi = nimi;
@@ -47,7 +45,12 @@ public class ViiniMuistiinpano implements Muistiinpano {
         }
         return rypaleet;
     }
+    
 
+    public void setViinityyppi(Viinityyppi viinityyppi) {
+        this.viinityyppi = viinityyppi;
+    }
+    
     public void setRypaleet(String rypaleet) {
         this.rypaleet = rypaleet;
     }
@@ -62,6 +65,14 @@ public class ViiniMuistiinpano implements Muistiinpano {
     public void setArvioViinista(int arvioViinista) {
         if (arvioViinista < 6 && arvioViinista >= 0) {
             this.arvioViinista = arvioViinista;
+        }
+    }
+    
+    public void setArvioViinistaStringina(String arvioViinista){
+        try {
+            int arvio = Integer.parseInt(arvioViinista);           
+            setArvioViinista(arvio);
+        } catch (Exception e){
         }
     }
 
@@ -82,10 +93,10 @@ public class ViiniMuistiinpano implements Muistiinpano {
     }
 
     public Integer getVuosikerta() {
-        if (onkoVuosikerta) {
+        if (vuosikerta > 1700 && vuosikerta < 2015) {
             return vuosikerta;
         } else {
-            return null;
+            return 0;
         }
 
     }
@@ -94,6 +105,15 @@ public class ViiniMuistiinpano implements Muistiinpano {
         if (AsetettavaVuosikerta > 1700 && AsetettavaVuosikerta < 2015) {
             this.vuosikerta = AsetettavaVuosikerta;
             onkoVuosikerta = true;
+        }
+    }
+        
+    public void setVuosikertaStringina(String AsetettavaVuosiKerta){
+        try {
+            int vuosikerta = Integer.parseInt(AsetettavaVuosiKerta);
+            setVuosikerta(vuosikerta);
+        } catch (Exception e) {
+            
         }
     }
 
@@ -159,7 +179,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
     public int getMuistiinpanonKuukausi() {
         return muistiinpanonKuukausi;
     }
-
+    
     public int getMuistiinpanonVuosi() {
         return muistiinpanonVuosi;
     }
@@ -180,9 +200,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
         }
     }
 
-    public int getVuosi() {
-        return muistiinpanonVuosi;
-    }
+    
 
     @Override
     public String toString() {
@@ -202,7 +220,7 @@ public class ViiniMuistiinpano implements Muistiinpano {
         //Voi olla null
         palautus += getArvioViinista() + uusiRivi;
 
-        palautus += getVapaaKuvausMuistiinpanoon();
+        palautus += getVapaaKuvausMuistiinpanoon() + uusiRivi;
         palautus += getVuosikerta();
         
         return palautus;

@@ -404,4 +404,48 @@ public class ViiniMuistiinpanoTest {
 
         assertEquals("Ei määritelty", vastaus);
     }
+    
+    @Test
+    public void setArvioViinistaStringinaToimiiJosHyvaArvoAnnettu() {
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+
+        muistiinpano.setArvioViinistaStringina("4");
+        
+        int vastaus = muistiinpano.getArvioViinista();
+
+        assertEquals(4, vastaus);
+    }
+    
+    @Test
+    public void setArvioViinistaStringinaEiToimiJosHuonoArvoAnnettu() {
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+
+        muistiinpano.setArvioViinistaStringina("Hihhei");
+        
+        int vastaus = muistiinpano.getArvioViinista();
+
+        assertEquals(0, vastaus);
+    }
+    
+    @Test
+    public void setVuosikertaStringinaEiToimiJosHuonoArvoAnnettu() {
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+
+        muistiinpano.setVuosikertaStringina("Hihhei");
+        
+        int vastaus = muistiinpano.getVuosikerta();
+
+        assertEquals(0, vastaus);
+    }
+    
+    @Test
+    public void setVuosikertaStringinaToimiiJosHyvaArvoAnnettu() {
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+
+        muistiinpano.setVuosikertaStringina("1999");
+        
+        int vastaus = muistiinpano.getVuosikerta();
+
+        assertEquals(1999, vastaus);
+    }
 }

@@ -15,11 +15,19 @@ import viinimuistio.domain.ViiniMuistiinpano;
 public class MassaViiniMuistiinpanojenTiedostoLukija {
     
     private List<String> tiedostolista;
-    
+ /**
+ * 
+ *  Konstruktoti ottaa arvot tiedostolista-attribuutille TiedostojenListaaja-luokalta, joka listaa muistiot-kansion sisällön.
+ */    
     public MassaViiniMuistiinpanojenTiedostoLukija(){
         TiedostojenListaaja listaaja = new TiedostojenListaaja();
         tiedostolista = listaaja.listaaKansionTiedostot();
     }
+    
+    /**
+ * 
+ *  Käyttää ViiniMuistiinpanonTiedostoLukija-luokkaa palauttaakseen Viinimuistiinpanon ilmentymiä listana "muistiot"-kansiossa olevista muistiinpanoista. Lista luotavista muistiinpanoista saadaan TiedostojenListaaja-luokalta konstruktorissa.
+ */
     
     public List<ViiniMuistiinpano> luoListaltaMuistiinpanotListaksi(){
         ViiniMuistiinpanonTiedostoLukija lukija = new ViiniMuistiinpanonTiedostoLukija();

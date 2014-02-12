@@ -17,7 +17,7 @@ import viinimuistio.domain.ViiniMuistiinpano;
 
 /**
  *
- * @author lexlex@cs
+ * @author TLKoodi
  */
 public class MassaMuistiinpanojenTiedostoLukijaTest {
     
@@ -38,6 +38,13 @@ public class MassaMuistiinpanojenTiedostoLukijaTest {
         tallentaja.luoUusiTiedosto("listaustesti1", "");
         tallentaja.luoUusiTiedosto("listaustesti2", "");
         tallentaja.luoUusiTiedosto("listaustesti3", "");
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+        muistiinpano.setTuotteenNimi("asdsadsdsd49449");
+        muistiinpano.setViinityyppi("Kuohuviini");
+
+        MuistiinpanonTallentaja muistiinpanontallentaja = new MuistiinpanonTallentaja(muistiinpano);
+        muistiinpanontallentaja.tallennaUusiMuistiinpano();
+
     }
     
     @After
@@ -45,16 +52,22 @@ public class MassaMuistiinpanojenTiedostoLukijaTest {
         TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
         tallentaja.poistaTiedosto("listaustesti1");
         tallentaja.poistaTiedosto("listaustesti2");
-        tallentaja.poistaTiedosto("listaustesti3");
+        tallentaja.poistaTiedosto("listaustesti3");       
+        tallentaja.poistaTiedosto("asdsadsdsd49449");
     }
-
+    
     @Test
     public void LuoListaltaMuistiinpanotListaksi() {
+        boolean loytyykoListasta = false;
         MassaViiniMuistiinpanojenTiedostoLukija lukija = new MassaViiniMuistiinpanojenTiedostoLukija();
         List<ViiniMuistiinpano> lista = lukija.luoListaltaMuistiinpanotListaksi();
-        int lukumaara = lista.size();
+        for (ViiniMuistiinpano muistiinpano : lista){
+            if (muistiinpano.getTuotteenNimi().equals("asdsadsdsd49449")){
+                loytyykoListasta = true;
+            }
+        }
         
-        assertEquals(3, lukumaara);
+        assertEquals(true, loytyykoListasta);
     }
     
 }

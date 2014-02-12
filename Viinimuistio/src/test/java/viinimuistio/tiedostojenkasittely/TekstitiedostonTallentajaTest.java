@@ -49,6 +49,15 @@ public class TekstitiedostonTallentajaTest {
         boolean vastaus = tallentaja.luoUusiTiedosto(nimi, "popop");
         assertEquals(true, vastaus);
     }
+    
+    @Test
+    public void eiLuoUudelleenSamaaTiedostoa() {
+        String nimi = "testitiedosto";
+        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        tallentaja.luoUusiTiedosto(nimi, "popop");
+        boolean vastaus = tallentaja.luoUusiTiedosto(nimi, "popop");
+        assertEquals(false, vastaus);
+    }
 
     @Test
     public void kirjoittaaOlemassaOlevaanTiedostoon() {
@@ -67,5 +76,12 @@ public class TekstitiedostonTallentajaTest {
         tallentaja.luoUusiTiedosto(nimi, "popop");
         boolean vastaus = tallentaja.poistaTiedosto(nimi);
         assertEquals(true, vastaus);
+    }
+    
+    @Test
+    public void poistaaTiedostoPalauttaaFalseKunPoistettavaaEiOle() {
+        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        boolean vastaus = tallentaja.poistaTiedosto("huhduwhuhuwewwrawrlkalkra");
+        assertEquals(false, vastaus);
     }
 }

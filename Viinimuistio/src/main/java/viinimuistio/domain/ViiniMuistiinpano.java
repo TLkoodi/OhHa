@@ -56,10 +56,10 @@ public class ViiniMuistiinpano implements Muistiinpano {
     }
 
     public Integer getArvioViinista() {
-        if (arvioViinista >= 0 || arvioViinista < 6) {
+        if (arvioViinista >= 0 && arvioViinista < 6) {
             return arvioViinista;
         }
-        return null;
+        return 0;
     }
 
     public void setArvioViinista(int arvioViinista) {

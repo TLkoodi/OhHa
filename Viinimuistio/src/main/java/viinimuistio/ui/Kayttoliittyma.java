@@ -37,8 +37,11 @@ public class Kayttoliittyma implements Runnable {
         GridLayout layout = new GridLayout(1, 2);
         container.setLayout(layout);
         container.add(luoTallennusvalikko());
+//        Muistiinpanovalikko valikko = new Muistiinpanovalikko();
+//        container.add(valikko);
 
     }
+    
 
     private JPanel luoTallennusvalikko() {
         JPanel panel = new JPanel(new GridLayout(18, 1));

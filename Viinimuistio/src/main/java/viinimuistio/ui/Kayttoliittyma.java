@@ -5,13 +5,11 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTabbedPane;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
@@ -36,9 +34,14 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-
-        GridLayout layout = new GridLayout(18, 1);
+        GridLayout layout = new GridLayout(1, 2);
         container.setLayout(layout);
+        container.add(luoTallennusvalikko());
+
+    }
+
+    private JPanel luoTallennusvalikko() {
+        JPanel panel = new JPanel(new GridLayout(18, 1));
 
 
         JLabel nimiLabel = new JLabel("Tuotteen nimi:");
@@ -58,11 +61,13 @@ public class Kayttoliittyma implements Runnable {
         JTextArea kuvausTextArea = new JTextArea();
         JLabel palauteLabel = new JLabel("");
 
-         
+
+        // Viinityypin pudotusvalikko
+
         String[] viiniTyyppiVaihtoehdot = {"", "Punaviini", "Valkoviini", "Kuohuviini", "Portviini", "Jalkiruokaviini", "Muu"};
-        
+
         final JTextArea valittuViiniTyyppi = new JTextArea();
-        
+
         final JComboBox viiniTyyppi = new JComboBox(viiniTyyppiVaihtoehdot);
 
         viiniTyyppi.addItemListener(
@@ -73,16 +78,16 @@ public class Kayttoliittyma implements Runnable {
                 }
             }
         });
-        
-        
+
+
         // Viinialueen pudotusvalikko.
-        
+
         String[] viiniAlueVaihtoehdot = {"", "Argenttiina", "Australia", "Chile", "Espanja", "EtelaAfrikka", "Italia", "Itävalta", "Portugali", "Ranska", "Saksa", "UusiSeelanti", "Yhdysvallat", "Muu"};
 
         final JTextArea valittuViiniAlue = new JTextArea();
 
         final JComboBox viiniAlueet = new JComboBox(viiniAlueVaihtoehdot);
-        
+
         viiniAlueet.addItemListener(
                 new ItemListener() {
             public void itemStateChanged(ItemEvent event) {
@@ -94,27 +99,29 @@ public class Kayttoliittyma implements Runnable {
 
         JButton tallennusnappi = new JButton("Tallenna muistiinpano");
 
-        KenttienTallentaja tallentaja = new KenttienTallentaja(nimiTextArea, maistamishetkiTextArea, valittuViiniTyyppi, vuosikertaTextArea, valittuViiniAlue, rypaleetTextArea, arvioTextArea, kuvausTextArea, valittuViiniAlue, palauteLabel);
+        TallennuksenKuuntelija tallentaja = new TallennuksenKuuntelija(nimiTextArea, maistamishetkiTextArea, valittuViiniTyyppi, vuosikertaTextArea, valittuViiniAlue, rypaleetTextArea, arvioTextArea, kuvausTextArea, valittuViiniAlue, palauteLabel);
         tallennusnappi.addActionListener(tallentaja);
 
-        container.add(nimiLabel);
-        container.add(nimiTextArea);
-        container.add(maistamishetkiLabel);
-        container.add(maistamishetkiTextArea);
-        container.add(viinityyppiLabel);
-        container.add(viiniTyyppi);
-        container.add(viinialueLabel);
-        container.add(viiniAlueet);
-        container.add(vuosikertaLabel);
-        container.add(vuosikertaTextArea);
-        container.add(rypaleetLabel);
-        container.add(rypaleetTextArea);
-        container.add(arvioLabel);
-        container.add(arvioTextArea);
-        container.add(kuvausLabel);
-        container.add(kuvausTextArea);
-        container.add(tallennusnappi);
-        container.add(palauteLabel);
+        panel.add(nimiLabel);
+        panel.add(nimiTextArea);
+        panel.add(maistamishetkiLabel);
+        panel.add(maistamishetkiTextArea);
+        panel.add(viinityyppiLabel);
+        panel.add(viiniTyyppi);
+        panel.add(viinialueLabel);
+        panel.add(viiniAlueet);
+        panel.add(vuosikertaLabel);
+        panel.add(vuosikertaTextArea);
+        panel.add(rypaleetLabel);
+        panel.add(rypaleetTextArea);
+        panel.add(arvioLabel);
+        panel.add(arvioTextArea);
+        panel.add(kuvausLabel);
+        panel.add(kuvausTextArea);
+        panel.add(tallennusnappi);
+        panel.add(palauteLabel);
+
+        return panel;
     }
 
     public JFrame getFrame() {

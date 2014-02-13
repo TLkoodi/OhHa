@@ -18,7 +18,7 @@ import viinimuistio.tiedostojenkasittely.MuistiinpanonTallentaja;
  *
  * @author lexlex@cs
  */
-public class KenttienTallentaja implements ActionListener {
+public class TallennuksenKuuntelija implements ActionListener {
 
     private JTextArea nimiTextArea;
     private JTextArea maistamishetkiTextArea;
@@ -31,7 +31,7 @@ public class KenttienTallentaja implements ActionListener {
     private JTextArea viiniAlue;
     private JLabel palaute;
 
-    public KenttienTallentaja(JTextArea nimiTextArea, JTextArea maistamishetkiTextArea, JTextArea viinityyppiTextArea, JTextArea vuosikertaTextArea, JTextArea viinialueTextArea, JTextArea rypaleetTextArea, JTextArea arvioTextArea, JTextArea kuvausTextArea, JTextArea viiniAlue, JLabel palauteLabel) {
+    public TallennuksenKuuntelija(JTextArea nimiTextArea, JTextArea maistamishetkiTextArea, JTextArea viinityyppiTextArea, JTextArea vuosikertaTextArea, JTextArea viinialueTextArea, JTextArea rypaleetTextArea, JTextArea arvioTextArea, JTextArea kuvausTextArea, JTextArea viiniAlue, JLabel palauteLabel) {
         this.nimiTextArea = nimiTextArea;
         this.maistamishetkiTextArea = maistamishetkiTextArea;
         this.viinityyppiTextArea = viinityyppiTextArea;

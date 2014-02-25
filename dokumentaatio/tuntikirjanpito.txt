@@ -12,3 +12,6 @@
 6.2.2014 - 8h - luotu luokkia, tehty sekvenssikaavioita, dokumentoitu, javaDoc, kaikkea
 11.2.2014 - 4h - luotu ensimmäinen versio graafisesta käyttöliittymästä
 12.2.2014 - 3h - paranneltu testejä ja käyttöliittymää
+19.2.2014 - 1h - UI
+20.2.2014 - 0,5h - UI
+25.2.2014 - 2h - UI

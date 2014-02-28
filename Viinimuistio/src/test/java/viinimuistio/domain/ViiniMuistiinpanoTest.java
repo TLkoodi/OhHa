@@ -10,9 +10,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import viinimuistio.domain.ViiniMuistiinpano;
 import static org.junit.Assert.*;
-import static viinimuistio.domain.Viinialue.*;
 
 /**
  *
@@ -108,7 +106,7 @@ public class ViiniMuistiinpanoTest {
 
         String vastaus = muistiinpano.getMuistiinpanoPaivamaara();
 
-        assertEquals("1.1.2014", vastaus);
+        assertEquals("01.01.2014", vastaus);
     }
 
     @Test
@@ -447,5 +445,49 @@ public class ViiniMuistiinpanoTest {
         int vastaus = muistiinpano.getVuosikerta();
 
         assertEquals(1999, vastaus);
+    }
+    
+    @Test
+    public void setKuukausiMeneeOikeinKunNollaEnsimmäinenMerkki() {
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+
+        muistiinpano.setMuistiinpanonKuukausi(Integer.parseInt("02"));
+        
+        int vastaus = muistiinpano.getMuistiinpanonKuukausi();
+
+        assertEquals(2, vastaus);
+    }
+    
+    @Test
+    public void setPaivaMeneeOikeinKunNollaEnsimmäinenMerkki() {
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+
+        muistiinpano.setMuistiinpanonPaiva(Integer.parseInt("02"));
+        
+        int vastaus = muistiinpano.getMuistiinpanonPaiva();
+
+        assertEquals(2, vastaus);
+    }
+    
+    @Test
+    public void getPaivaStringinaLisaaNollanYksinumeroiseenPaivaan() {
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+
+        muistiinpano.setMuistiinpanonPaiva(2);
+        
+        String vastaus = muistiinpano.getMuistiinpanonPaivaKaksinumeroisenaStringina();
+
+        assertEquals("02", vastaus);
+    }
+    
+    @Test
+    public void getKuukausiStringinaLisaaNollanYksinumeroiseenKuukauteen() {
+        ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
+
+        muistiinpano.setMuistiinpanonKuukausi(2);
+        
+        String vastaus = muistiinpano.getMuistiinpanonKuukausiKaksinumeroisenaStringina();
+
+        assertEquals("02", vastaus);
     }
 }

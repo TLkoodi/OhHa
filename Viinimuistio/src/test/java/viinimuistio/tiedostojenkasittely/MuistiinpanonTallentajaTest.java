@@ -12,7 +12,7 @@ import org.junit.Test;
 import viinimuistio.tiedostojenkasittely.MuistiinpanonTallentaja;
 import static org.junit.Assert.*;
 import viinimuistio.domain.ViiniMuistiinpano;
-import viinimuistio.tiedostojenkasittely.TekstitiedostonTallentaja;
+import viinimuistio.tiedostojenkasittely.TekstitiedostonKasittelija;
 
 /**
  *
@@ -38,7 +38,7 @@ public class MuistiinpanonTallentajaTest {
     @After
     public void tearDown() {
         String nimi = "testitiedosto";
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.poistaTiedosto(nimi);
     }
 

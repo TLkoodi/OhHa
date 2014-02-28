@@ -1,7 +1,7 @@
 15.1.2014 - 3h - DL1 configurointeja ja tutustumista aiheeseen
 17.1.2014 - 2h - Lis‰‰ konffausta windows-puolelle, muistelua luokkakaavioiden tekemisest‰, luokkakaavion teko
-20.1.2014 - 1h - Ohjelmakoodin aloittamista
-21.1.2014 - 1h - Ohjelmakoodin jatkamista
+20.1.2014 - 1h - Ohjelmakoodin aloittamista (Viinimuistiinpano)
+21.1.2014 - 1h - Ohjelmakoodin jatkamista (Viinimuistiinpano)
 21.1.2014 - 3h - Koodia, testej‰
 21.1.2014 - 1,5h - tiedonhakua
 22.1.2014 - 2h - luotu tiedostonk‰sittelyluokka ja pari testi‰
@@ -15,3 +15,4 @@
 19.2.2014 - 1h - UI
 20.2.2014 - 0,5h - UI
 25.2.2014 - 2h - UI
+28.2.2014

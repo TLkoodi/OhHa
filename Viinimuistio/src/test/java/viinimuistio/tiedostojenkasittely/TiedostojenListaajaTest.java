@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author lexlex@cs
+ * @author TLKoodi
  */
 public class TiedostojenListaajaTest {
 
@@ -32,27 +32,48 @@ public class TiedostojenListaajaTest {
 
     @Before
     public void setUp() {
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.luoUusiTiedosto("listaustesti1", "");
         tallentaja.luoUusiTiedosto("listaustesti2", "");
     }
 
     @After
     public void tearDown() {
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.poistaTiedosto("listaustesti1");
         tallentaja.poistaTiedosto("listaustesti2");
     }
     
     
-//   Huono testi! Rikkoutuu jos muistiinpanokansiossa on enemmän tiedostoja alussa.
-//    @Test
-//    public void ListaaKansionTiedostot() {
-//        TiedostojenListaaja lukija = new TiedostojenListaaja();
-//
-//        int lukumaara = lukija.listaaKansionTiedostot().size();
-//
-//        assertEquals(2, lukumaara);
-//
-//    }
+    @Test
+    public void ListaaKansionTiedostot() {
+        TiedostojenListaaja lukija = new TiedostojenListaaja();
+
+        List lista = lukija.listaaKansionTiedostot();
+        
+        boolean listaako = false;
+        
+        if (lista.contains("listaustesti2")){
+            listaako = true;
+        }
+
+        assertEquals(true, listaako);
+
+    }
+    
+    @Test
+    public void EiListaaKansionTiedostoaJosSellaistaEiOle() {
+        TiedostojenListaaja lukija = new TiedostojenListaaja();
+
+        List lista = lukija.listaaKansionTiedostot();
+        
+        boolean listaako = false;
+        
+        if (lista.contains("aslrkorrowriowqriowi3533535jsfksjfkfjs")){
+            listaako = true;
+        }
+
+        assertEquals(false, listaako);
+
+    }
 }

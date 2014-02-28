@@ -38,8 +38,8 @@ public class ViiniMuistiinpanonTiedostoLukijaTest {
     @After
     public void tearDown() {
         String nimi = "testitiedosto";
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
-        tallentaja.poistaTiedosto(nimi);
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
+       tallentaja.poistaTiedosto(nimi);
     }
 
     @Test

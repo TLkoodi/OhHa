@@ -10,17 +10,17 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import viinimuistio.tiedostojenkasittely.TekstitiedostonTallentaja;
-import viinimuistio.tiedostojenkasittely.TekstitiedostonTallentaja;
+import viinimuistio.tiedostojenkasittely.TekstitiedostonKasittelija;
+import viinimuistio.tiedostojenkasittely.TekstitiedostonKasittelija;
 import static org.junit.Assert.*;
 
 /**
  *
  * @author Tony
  */
-public class TekstitiedostonTallentajaTest {
+public class TekstitiedostonKasittelijaTest {
 
-    public TekstitiedostonTallentajaTest() {
+    public TekstitiedostonKasittelijaTest() {
     }
 
     @BeforeClass
@@ -38,14 +38,14 @@ public class TekstitiedostonTallentajaTest {
     @After
     public void tearDown() {
         String nimi = "testitiedosto";
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.poistaTiedosto(nimi);
     }
 
     @Test
     public void LuoUudenTiedoston() {
         String nimi = "testitiedosto";
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         boolean vastaus = tallentaja.luoUusiTiedosto(nimi, "popop");
         assertEquals(true, vastaus);
     }
@@ -53,7 +53,7 @@ public class TekstitiedostonTallentajaTest {
     @Test
     public void eiLuoUudelleenSamaaTiedostoa() {
         String nimi = "testitiedosto";
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.luoUusiTiedosto(nimi, "popop");
         boolean vastaus = tallentaja.luoUusiTiedosto(nimi, "popop");
         assertEquals(false, vastaus);
@@ -63,7 +63,7 @@ public class TekstitiedostonTallentajaTest {
     public void kirjoittaaOlemassaOlevaanTiedostoon() {
         String nimi = "testitiedosto";
         String kirjoitettava = "popop";
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.luoUusiTiedosto(nimi, kirjoitettava);
         boolean vastaus = tallentaja.kirjoitaOlemassaOlevaanTiedostoon(nimi, kirjoitettava);
         assertEquals(true, vastaus);
@@ -72,7 +72,7 @@ public class TekstitiedostonTallentajaTest {
     @Test
     public void poistaaTiedoston() {
         String nimi = "testitiedosto2";
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.luoUusiTiedosto(nimi, "popop");
         boolean vastaus = tallentaja.poistaTiedosto(nimi);
         assertEquals(true, vastaus);
@@ -80,7 +80,7 @@ public class TekstitiedostonTallentajaTest {
     
     @Test
     public void poistaaTiedostoPalauttaaFalseKunPoistettavaaEiOle() {
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         boolean vastaus = tallentaja.poistaTiedosto("huhduwhuhuwewwrawrlkalkra");
         assertEquals(false, vastaus);
     }

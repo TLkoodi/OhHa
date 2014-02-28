@@ -52,7 +52,7 @@ public class ViiniMuistiinpanoAnalyysiTest {
     
     @After
     public void tearDown() {
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.poistaTiedosto("weoweioeweoi3444444");        
         tallentaja.poistaTiedosto("weoweioeweoi34444445");
     }

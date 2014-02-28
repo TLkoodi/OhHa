@@ -7,35 +7,38 @@ package viinimuistio.tiedostojenkasittely;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 /**
  * Listaa "muistiot"-kansion tiedostot muille luokille käsiteltäväksi.
- * 
+ *
  * @author TLKoodi
  */
 public class TiedostojenListaaja {
 
-
     public TiedostojenListaaja() {
     }
 
+    /**
+     * Metodi listaa kansion "muistiot"-kansion tiedostot ja palauttaa nimet
+     * listana.
+     *
+     * @return antaa muistiot-kansion tiedostonimet listana Stringejä.
+     */
     public List listaaKansionTiedostot() {
         File[] tiedostot = new File("./muistiot").listFiles();
 
-        List<String> tulokset = new ArrayList<String>();
+        List<String> tulokset = new ArrayList<>();
 
-        for (File file : tiedostot) {
-            
-            if (file.isFile() && file.getName().contains(".txt")) {
-                
-                String tiedostonNimiIlmanTxtPaatetta = file.getName().replace(".txt", "");
-                
+        for (File tiedosto : tiedostot) {
+
+            if (tiedosto.isFile() && tiedosto.getName().contains(".txt")) {
+
+                String tiedostonNimiIlmanTxtPaatetta = tiedosto.getName().replace(".txt", "");
+
                 tulokset.add(tiedostonNimiIlmanTxtPaatetta);
             }
-            
+
         }
         return tulokset;
 

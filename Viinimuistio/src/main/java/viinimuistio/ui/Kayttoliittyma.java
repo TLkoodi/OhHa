@@ -139,7 +139,7 @@ public class Kayttoliittyma implements Runnable {
         JButton latausnappi = new JButton("Tuo valittu muistiinpano");
         JButton poistonappi = new JButton("Poista valittu muistiinpano");
         LatauksenKuuntelija lataaja = new LatauksenKuuntelija(nimiTextArea, maistamishetkiTextArea, valittuViiniTyyppi, vuosikertaTextArea, valittuViiniAlue, rypaleetTextArea, arvioTextArea, kuvausTextArea, palauteLabel, viiniTyyppi, viiniAlueet, valittu);
-        PoistonKuuntelija poistaja = new PoistonKuuntelija(valittu);
+        PoistonKuuntelija poistaja = new PoistonKuuntelija(valittu, palauteLabel);
         latausnappi.addActionListener(lataaja);
         poistonappi.addActionListener(poistaja);
         

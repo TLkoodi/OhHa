@@ -56,7 +56,7 @@ public class TallennuksenKuuntelija implements ActionListener {
         viinimuistiinpano.setArvioViinistaStringina(arvioTextArea.getText());
         viinimuistiinpano.setVapaaKuvausMuistiinpanoon(kuvausTextArea.getText());
         MuistiinpanonTallentaja muistiinpanonTallentaja = new MuistiinpanonTallentaja(viinimuistiinpano);
-        muistiinpanonTallentaja.tallennaUusiMuistiinpano();
+        muistiinpanonTallentaja.muokkaaVanhaaMuistiinpanoa();
         palaute.setText("Tallennettu!");
     }
     

@@ -19,9 +19,9 @@ import viinimuistio.domain.ViiniMuistiinpano;
  *
  * @author TLKoodi
  */
-public class MassaMuistiinpanojenTiedostoLukijaTest {
+public class MassaViiniMuistiinpanojenTiedostoLukijaTest {
     
-    public MassaMuistiinpanojenTiedostoLukijaTest() {
+    public MassaViiniMuistiinpanojenTiedostoLukijaTest() {
     }
     
     @BeforeClass
@@ -34,7 +34,7 @@ public class MassaMuistiinpanojenTiedostoLukijaTest {
     
     @Before
     public void setUp() {
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.luoUusiTiedosto("listaustesti1", "");
         tallentaja.luoUusiTiedosto("listaustesti2", "");
         tallentaja.luoUusiTiedosto("listaustesti3", "");
@@ -49,7 +49,7 @@ public class MassaMuistiinpanojenTiedostoLukijaTest {
     
     @After
     public void tearDown() {
-        TekstitiedostonTallentaja tallentaja = new TekstitiedostonTallentaja();
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         tallentaja.poistaTiedosto("listaustesti1");
         tallentaja.poistaTiedosto("listaustesti2");
         tallentaja.poistaTiedosto("listaustesti3");       

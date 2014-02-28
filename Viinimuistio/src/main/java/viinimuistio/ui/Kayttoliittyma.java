@@ -4,8 +4,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.List;
@@ -15,13 +14,19 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.Timer;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import viinimuistio.tiedostojenkasittely.TiedostojenListaaja;
 
+/**
+ * Ohjelman käyttöliittymä
+ *
+ * @author TLKoodi
+ */
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
@@ -33,7 +38,7 @@ public class Kayttoliittyma implements Runnable {
     JTextArea viinityyppiTextArea = new JTextArea();
     JLabel vuosikertaLabel = new JLabel("Vuosikerta:");
     JTextArea vuosikertaTextArea = new JTextArea();
-    JLabel viinialueLabel = new JLabel("Viinialue:");
+    JLabel viinialueLabel = new JLabel("Viinin valmistusalue:");
     JLabel rypaleetLabel = new JLabel("Käytetyt rypäleet:");
     JTextArea rypaleetTextArea = new JTextArea();
     JLabel arvioLabel = new JLabel("Arvio tuotteesta (0-5 tähteä):");
@@ -45,13 +50,27 @@ public class Kayttoliittyma implements Runnable {
     JList muistiinpanoLista;
     JPanel muistiinpanovalikko;
 
+    /**
+     * Viinityyppi-pudotusvalikon vaihtoehdot
+     */
+    String[] viiniTyyppiVaihtoehdot = {"", "Punaviini", "Valkoviini", "Kuohuviini", "Portviini", "Jalkiruokaviini", "Muu"};
+    final JTextArea valittuViiniTyyppi = new JTextArea();
+    final JComboBox viiniTyyppi = new JComboBox(viiniTyyppiVaihtoehdot);
+
+    /**
+     * Viinialue-pudotusvalikon vaihtoehdot
+     */
+    String[] viiniAlueVaihtoehdot = {"", "Argenttiina", "Australia", "Chile", "Espanja", "EtelaAfrikka", "Italia", "Itävalta", "Portugali", "Ranska", "Saksa", "UusiSeelanti", "Yhdysvallat", "Muu"};
+    final JTextArea valittuViiniAlue = new JTextArea();
+    final JComboBox viiniAlueet = new JComboBox(viiniAlueVaihtoehdot);
+
     public Kayttoliittyma() {
     }
 
     @Override
     public void run() {
         frame = new JFrame("Viinimuistio");
-        frame.setPreferredSize(new Dimension(400, 400));
+        frame.setPreferredSize(new Dimension(800, 400));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,38 +93,30 @@ public class Kayttoliittyma implements Runnable {
     public JFrame getFrame() {
         return frame;
     }
-    // Viinityypin pudotusvalikko
-    String[] viiniTyyppiVaihtoehdot = {"", "Punaviini", "Valkoviini", "Kuohuviini", "Portviini", "Jalkiruokaviini", "Muu"};
-    final JTextArea valittuViiniTyyppi = new JTextArea();
-    final JComboBox viiniTyyppi = new JComboBox(viiniTyyppiVaihtoehdot);
-    // Viinialueen pudotusvalikko.
-    String[] viiniAlueVaihtoehdot = {"", "Argenttiina", "Australia", "Chile", "Espanja", "EtelaAfrikka", "Italia", "Itävalta", "Portugali", "Ranska", "Saksa", "UusiSeelanti", "Yhdysvallat", "Muu"};
-    final JTextArea valittuViiniAlue = new JTextArea();
-    final JComboBox viiniAlueet = new JComboBox(viiniAlueVaihtoehdot);
 
+    /**
+     * Luo vasemmanpuoleisen osan ohjelman käyttöliittymästä
+     */
     public JPanel luoTallennusvalikko() {
         JPanel panel = new JPanel(new GridLayout(18, 1));
 
-
-
-
         viiniTyyppi.addItemListener(
                 new ItemListener() {
-            public void itemStateChanged(ItemEvent event) {
-                if (event.getStateChange() == ItemEvent.SELECTED) {
-                    valittuViiniTyyppi.setText((String) viiniTyyppi.getSelectedItem());
-                }
-            }
-        });
+                    public void itemStateChanged(ItemEvent event) {
+                        if (event.getStateChange() == ItemEvent.SELECTED) {
+                            valittuViiniTyyppi.setText((String) viiniTyyppi.getSelectedItem());
+                        }
+                    }
+                });
 
         viiniAlueet.addItemListener(
                 new ItemListener() {
-            public void itemStateChanged(ItemEvent event) {
-                if (event.getStateChange() == ItemEvent.SELECTED) {
-                    valittuViiniAlue.setText((String) viiniAlueet.getSelectedItem());
-                }
-            }
-        });
+                    public void itemStateChanged(ItemEvent event) {
+                        if (event.getStateChange() == ItemEvent.SELECTED) {
+                            valittuViiniAlue.setText((String) viiniAlueet.getSelectedItem());
+                        }
+                    }
+                });
 
         JButton tallennusnappi = new JButton("Tallenna muistiinpano");
 
@@ -127,6 +138,7 @@ public class Kayttoliittyma implements Runnable {
         panel.add(arvioLabel);
         panel.add(arvioTextArea);
         panel.add(kuvausLabel);
+        kuvausTextArea.setMargin(new Insets(5, 5, 5, 5));
         panel.add(kuvausTextArea);
         panel.add(tallennusnappi);
         panel.add(palauteLabel);
@@ -136,18 +148,22 @@ public class Kayttoliittyma implements Runnable {
 
     public JPanel luoMuistiinpanovalikonPainikkeet() {
         JPanel panel = new JPanel(new FlowLayout());
-        JButton latausnappi = new JButton("Tuo valittu muistiinpano");
+        JButton latausnappi = new JButton("Muokkaa");
         JButton poistonappi = new JButton("Poista valittu muistiinpano");
         LatauksenKuuntelija lataaja = new LatauksenKuuntelija(nimiTextArea, maistamishetkiTextArea, valittuViiniTyyppi, vuosikertaTextArea, valittuViiniAlue, rypaleetTextArea, arvioTextArea, kuvausTextArea, palauteLabel, viiniTyyppi, viiniAlueet, valittu);
         PoistonKuuntelija poistaja = new PoistonKuuntelija(valittu, palauteLabel);
         latausnappi.addActionListener(lataaja);
         poistonappi.addActionListener(poistaja);
-        
+
         panel.add(latausnappi);
         panel.add(poistonappi);
         return panel;
     }
 
+    /**
+     * Luo oikeanpuoleisen osan käyttöliittymästä
+     *
+     */
     public JPanel luoMuistiinpanovalikko() {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         panel.add(luoMuistiinpanolistaus());
@@ -157,13 +173,11 @@ public class Kayttoliittyma implements Runnable {
 
     private JPanel luoMuistiinpanolistaus() {
         JPanel panel = new JPanel(new GridLayout(1, 1));
-        
         panel.add(getMuistiinpanolistaus());
-        
         return panel;
     }
-    
-    private JList getMuistiinpanolistaus(){
+
+    private JScrollPane getMuistiinpanolistaus() {
         TiedostojenListaaja listaaja = new TiedostojenListaaja();
 
         List<String> tunnistetutMuistiinpanojenNimet = listaaja.listaaKansionTiedostot();
@@ -184,12 +198,14 @@ public class Kayttoliittyma implements Runnable {
                 }
             }
         });
-        
-        return muistiinpanoLista;
+
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setViewportView(muistiinpanoLista);
+        return scrollPane;
     }
-    
-    public void paivitaLista(){
+
+    public void paivitaLista() {
         this.muistiinpanovalikko = luoMuistiinpanovalikko();
     }
-    
+
 }

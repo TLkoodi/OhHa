@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package viinimuistio.ui;
 
 import java.awt.event.ActionEvent;
@@ -10,15 +6,16 @@ import javax.swing.JLabel;
 import viinimuistio.tiedostojenkasittely.TekstitiedostonKasittelija;
 
 /**
+ * ActionListener joka poistaa tiedoston
  *
- * @author admin
+ * @author TLKoodi
  */
-public class PoistonKuuntelija implements ActionListener{
-    
+public class PoistonKuuntelija implements ActionListener {
+
     JLabel valittu;
     JLabel palaute;
-    
-    public PoistonKuuntelija(JLabel valittu, JLabel palauteLabel){
+
+    public PoistonKuuntelija(JLabel valittu, JLabel palauteLabel) {
         this.valittu = valittu;
         this.palaute = palauteLabel;
     }
@@ -27,11 +24,11 @@ public class PoistonKuuntelija implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         TekstitiedostonKasittelija poistaja = new TekstitiedostonKasittelija();
         boolean poistuiko = poistaja.poistaTiedosto(valittu.getText());
-        if(poistuiko){
+        if (poistuiko) {
             palaute.setText("Poistettu!");
         } else {
             palaute.setText("Poisto ei onnistunut!");
-        }        
+        }
     }
-    
+
 }

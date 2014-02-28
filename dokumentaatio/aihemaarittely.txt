@@ -1,37 +1,23 @@
 ﻿Aihe: Viinimuistio-ohjelma
 Toteutetaan ohjelma, jonka avulla henkilö voi pitää kirjaa maistamistaan viineistä.
 
-Ohjelma tallettaa käyttäjän syöttämät tiedot ohjelman luomaan tiedostoon, ja käyttäjä voi hakea tietoja aiemmista muistiinpanoista.
+Ohjelma tallettaa käyttäjän syöttämät tiedot ohjelman luomaan tiedostoon, ja käyttäjä voi tuoda tiedot aiemmista muistiinpanoista.
 
-Luodessa uutta muistiinpanoa juoman tyyppi ja maistamispäivämäärä ja muut valmiiksi annetut vaihtoehdot valitaan käyttöliittymään toteutettavasta pudotusvalikosta. Valmiiksi asetettujen vaihtoehtojen lisäksi käyttäjän on mahdollisuus antaa vapaa teksti tietyille arvoille, kuten "vapaa kuvaus".
+Luodessa uutta muistiinpanoa juoman tyyppi ja maistamispäivämäärä ja muut valmiiksi annetut vaihtoehdot annetaan. Valinnat tekee käyttäjä vaihtoehtokohtaisesti joko syöttämällä arvot, tai valitsemalla vaihtoehdot pudotusvalikosta. 
 
 Käyttäjät: Viinien maistaja
 
 Syötettävät tiedot muistiinpanojen luomisvaiheessa:
 - Viinin / Muisiinpanon nimi
 - Viinin arviointihetki
-- Viinin vuosikerta (jos on)
+- Viinityyppi (Esim. punaviini, valkoviini)
 - Viinin valmistusalue
+- Viinin vuosikerta (jos on)
 - Viiniin käytetyt rypäleet
 - Arvio viinistä
 - Vapaasti kirjoitettava kuvaus
 
-
-Mahdollisia hakukriteerejä muistiinpanojen hakuvaiheessa:
-- Vapaa teksti jota etsitään nimestä ja kuvauksesta
-- Valmistusalue
-- Käytetyt rypäleet
-- Arviointihetki
-- Vuosikerta
-
-Hahmottamisen helpottamiseksi suunniteltu järjestys tiedostoon tallennetuille muistiinpanon arvoille (yksi arvo per rivi):
-
-0.Tunniste (Onko Viini, Olut, vai joku muu muistio)
-1.Viinin nimi
-2.Viinin maistamishetki (muodossa DD.MM.YYYY)
-3.Viinityyppi (ENUM: Puna, Valko, Kuohu, Port, Jalkiruoka, Muu)
-4.Viinialue (ENUM: Toistaiseksi rajoittuu viinimaahan)
-5.Viinissä käytetyt rypäleet (VAPAA TEKSTI)
-6.Arvio viinistä (INT 0..5, voidaan mieltää "montako tähteä tälle viinille")
-7.kuvaus, omaa tekstiä, kokemusta, lisätietoja, yms. (VAPAA TEKSTI)
-8.Viinin vuosikerta
+Toimintoja:
+- Muistiinpanon tallennus
+- Vanhan muistiinpanon lataus muokattavaksi
+- Muistiinpanon poistaminen

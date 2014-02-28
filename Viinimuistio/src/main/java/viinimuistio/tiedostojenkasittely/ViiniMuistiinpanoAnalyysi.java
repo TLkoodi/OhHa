@@ -169,7 +169,7 @@ public class ViiniMuistiinpanoAnalyysi {
     }
 
     /**
-     * Hakee analysoitavasta stringistä tiettyä haettua merkkijonoa.F
+     * Hakee analysoitavasta stringistä tiettyä haettua merkkijonoa.
      *
      * @param analysoitava String mistä etsitään
      * @param hakusana String mitä etsitään

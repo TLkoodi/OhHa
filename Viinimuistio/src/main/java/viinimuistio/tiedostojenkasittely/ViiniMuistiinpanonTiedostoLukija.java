@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package viinimuistio.tiedostojenkasittely;
 
 import java.io.BufferedReader;
@@ -13,11 +9,14 @@ import viinimuistio.domain.ViiniMuistiinpano;
 
 /**
  * Lukee tekstitiedoston rivit ja muodostaa niistä Viinimuistiinpanon.
+ *
  * @author TLKoodi
  */
 public class ViiniMuistiinpanonTiedostoLukija {
 
-    private BufferedReader lukija;
+    /**
+     * Tiedoston nimi, mikä tällä hetkellä on luokan käsittelyssä.
+     */
     private String tiedostoNimi;
 
     public ViiniMuistiinpanonTiedostoLukija() {
@@ -27,34 +26,32 @@ public class ViiniMuistiinpanonTiedostoLukija {
         return tiedostoNimi;
     }
 
+    /**
+     * Asetetaan tiedosto luokalle käyttöön ja lisätään siihen ".txt"
+     *
+     * @param haettavaTiedostoNimi
+     */
     public void asetaTiedosto(String haettavaTiedostoNimi) {
         tiedostoNimi = haettavaTiedostoNimi + ".txt";
     }
 
-//    public boolean lueTiedosto() {
-//        try {
-//            reader = new BufferedReader(new FileReader(tiedostoNimi));
-//            String rivi = null;
-//            while (true) {
-//                rivi = reader.readLine();
-//                if (rivi.equals("viini")) {
-//                    
-//                }
-//            }
-//        } catch (IOException e) {
-//        }
-//        return false;
-//    }
+    /**
+     * Luo viinimuistiinpanon ja lisää sille arvot tiedostosta. Tiedosto haetaan
+     * tiedostonNimi-attribuutin perusteella. Jokaisella rivillä on määrätty
+     * tieto jonka perusteella muistiinpano rakennetaan.
+     *
+     * @return palauttaa valmiin muistiinpanon
+     */
     public ViiniMuistiinpano tuoViiniTiedosto() {
+
         ViiniMuistiinpano muistiinpano = new ViiniMuistiinpano();
 
         try {
             FileInputStream fstream = new FileInputStream("./muistiot/" + tiedostoNimi);
             DataInputStream in = new DataInputStream(fstream);
-            lukija = new BufferedReader(new InputStreamReader(in));
+            BufferedReader lukija = new BufferedReader(new InputStreamReader(in));
 
             int i = 0;
-
 
             String rivi;
 
@@ -91,7 +88,7 @@ public class ViiniMuistiinpanonTiedostoLukija {
                 if (i == 7) {
                     muistiinpano.setVapaaKuvausMuistiinpanoon(rivi);
                 }
-                
+
                 if (i == 8) {
                     muistiinpano.setVuosikerta(Integer.parseInt(rivi));
                 }

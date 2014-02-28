@@ -1,0 +1,24 @@
+Viinimuistiinpano-luokka on ohjelman keskeinen luokka. Se sisältää
+muistiinpanotietoja, esim tuotteen nimi, vuosikerta, päivämäärä. Luokka
+toteuttaa rajapinnan "muistiinpano", jotta ohjelmalla olisi laajennettavuutta esimerkiksi olutmuistiinpanoihin.
+
+Viinimuistiinpanoa käsitellään useammissa tiedostojenkäsittely-paketin
+luokissa.
+
+Muistiinpanojen tallentaja tallentaa "muistiinpano"-rajapinnan toteuttajan tekstitiedostoon käyttäen Tekstitiedostonkäsittelijä-luokkaa. Tekstitiedostonkäsittelijä sisältää toiminnallisuuden tiedostojen luomiseen, päivittämiseen ja poistamiseen.
+
+ViininMuistiinpanonTiedostoLukija-luokka hakee tekstitiedostojen sisällön ja luo niistä ohjelmaan käsiteltäväksi viinimuistiinpano-luokan ilmentymän. MassaViiniMuistiinpanonTiedostoLukija hakee edellistä luokaa ja TiedostojenListaajaa hyväksikäyttäen kaikki "muistiot"-kansion tiedostot.
+
+ViiniMuistiinpanoAnalyysi sisältää toiminnallisuutta viinimuistiinpanojen sisällönhakuun.
+
+Hahmottamisen helpottamiseksi järjestys tekstitiedostoon tallennetuille muistiinpanon arvoille (yksi arvo per rivi):
+
+0.Tunniste (Onko Viini, Olut, vai joku muu muistio)
+1.Viinin nimi
+2.Viinin maistamishetki (muodossa DD.MM.YYYY)
+3.Viinityyppi (ENUM: Puna, Valko, Kuohu, Port, Jalkiruoka, Muu)
+4.Viinialue (ENUM: Toistaiseksi rajoittuu viinimaahan)
+5.Viinissä käytetyt rypäleet (VAPAA TEKSTI)
+6.Arvio viinistä (INT 0..5, voidaan mieltää "montako tähteä tälle viinille")
+7.kuvaus, omaa tekstiä, kokemusta, lisätietoja, yms. (VAPAA TEKSTI)
+8.Viinin vuosikerta

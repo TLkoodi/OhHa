@@ -1,0 +1,12 @@
+Tervetuloa käyttämään Viinimuistio-ohjelmaa. Viinimuistio auttaa sinua pitämään kirjaa maistamistasi viineistä. 
+
+Käynnistäessäsi ohjelman, eteesi aukeaa ohjelman käyttöliittymä. 
+Vasemmalla puolella on valikko johon voit kirjoittaa uuden muistiinpanosi tiedot. Sinulla on mahdollisuus täyttää useita kohtia muistiinpanoihisi, esimerkiksi Viinin nimi, maistamishetki ja vuosikerta. Tallentaaksesi muistiinpanon, paina "Tallenna muistiinpano".
+
+Oikealla puolella käyttöliittymää on listaus aiemmin luomistasi muistiinpanoista. Jos haluat tarkastella aiempaa muistiinpanoa, klikkaa vain muistiinpanon nimeä, ja paina "muokkaa". Aiemman muistiinpanosi tiedot siirtyvät nyt vasemmalle sinun muokattavaksesi. Jos haluat muokata muistiinpanoa, syötä vain vanhojen arvojen tilalle uudet ja tallenna.
+
+Voit myös poistaa aiemman muistiinpanosi klikkaamalla muistiinpanon nimeä ja painamalla "Poista valittu muistiinpano". Ole kuitenkin ominaisuuden kanssa varovainen, sillä poistettua muistiinpanoa ei voi palauttaa!
+
+Ohjelma ei toistaiseksi päivitä juuri luomaasi muistiinpanoa oikealla olevaan listaukseen heti, vaan se näkyy sinulle seuraavalla ohjelman käynnistyskerralla. Poistamasi muistiinpano myöskin poistuu seuraavalla käynnistyskerralla.
+
+

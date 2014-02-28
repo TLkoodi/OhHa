@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import viinimuistio.domain.ViiniMuistiinpano;
 import viinimuistio.tiedostojenkasittely.ViiniMuistiinpanonTiedostoLukija;
 
@@ -15,20 +16,20 @@ import viinimuistio.tiedostojenkasittely.ViiniMuistiinpanonTiedostoLukija;
  */
 public class LatauksenKuuntelija implements ActionListener {
 
-    private JTextArea nimiTextArea;
-    private JTextArea maistamishetkiTextArea;
+    private JTextField nimiTextArea;
+    private JTextField maistamishetkiTextArea;
     private JTextArea viinityyppiTextArea;
-    private JTextArea vuosikertaTextArea;
+    private JTextField vuosikertaTextArea;
     private JTextArea viinialueTextArea;
-    private JTextArea rypaleetTextArea;
-    private JTextArea arvioTextArea;
-    private JTextArea kuvausTextArea;
+    private JTextField rypaleetTextArea;
+    private JTextField arvioTextArea;
+    private JTextField kuvausTextArea;
     private JLabel palaute;
     private JLabel valittu;
     private JComboBox viiniAlue;
     private JComboBox viiniTyyppi;
 
-    public LatauksenKuuntelija(JTextArea nimiTextArea, JTextArea maistamishetkiTextArea, JTextArea viinityyppiTextArea, JTextArea vuosikertaTextArea, JTextArea viinialueTextArea, JTextArea rypaleetTextArea, JTextArea arvioTextArea, JTextArea kuvausTextArea, JLabel palauteLabel, JComboBox viiniTyyppi, JComboBox viiniAlue, JLabel valittu) {
+    public LatauksenKuuntelija(JTextField nimiTextArea, JTextField maistamishetkiTextArea, JTextArea viinityyppiTextArea, JTextField vuosikertaTextArea, JTextArea viinialueTextArea, JTextField rypaleetTextArea, JTextField arvioTextArea, JTextField kuvausTextArea, JLabel palauteLabel, JComboBox viiniTyyppi, JComboBox viiniAlue, JLabel valittu) {
         this.nimiTextArea = nimiTextArea;
         this.maistamishetkiTextArea = maistamishetkiTextArea;
         this.viinityyppiTextArea = viinityyppiTextArea;
@@ -58,7 +59,7 @@ public class LatauksenKuuntelija implements ActionListener {
             rypaleetTextArea.setText(muistiinpano.getRypaleet());
             arvioTextArea.setText("" + muistiinpano.getArvioViinista());
             kuvausTextArea.setText(muistiinpano.getVapaaKuvausMuistiinpanoon());
-            palaute.setText("Muistiinpano tuotu");
+            palaute.setText("Muistiinpano ladattu.");
         }
     }
 }

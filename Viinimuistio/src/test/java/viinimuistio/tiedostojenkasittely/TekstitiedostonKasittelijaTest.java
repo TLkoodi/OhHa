@@ -33,6 +33,9 @@ public class TekstitiedostonKasittelijaTest {
 
     @Before
     public void setUp() {
+        String nimi = "testitiedosto";
+        TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
+        tallentaja.poistaTiedosto(nimi);
     }
 
     @After
@@ -44,9 +47,11 @@ public class TekstitiedostonKasittelijaTest {
 
     @Test
     public void LuoUudenTiedoston() {
-        String nimi = "testitiedosto";
+        
+        String nimi = "besttiedosto";        
         TekstitiedostonKasittelija tallentaja = new TekstitiedostonKasittelija();
         boolean vastaus = tallentaja.luoUusiTiedosto(nimi, "popop");
+        tallentaja.poistaTiedosto(nimi);
         assertEquals(true, vastaus);
     }
     

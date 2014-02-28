@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import viinimuistio.domain.ViiniMuistiinpano;
 import viinimuistio.tiedostojenkasittely.MuistiinpanonTallentaja;
 
@@ -16,18 +17,18 @@ import viinimuistio.tiedostojenkasittely.MuistiinpanonTallentaja;
  */
 public class TallennuksenKuuntelija implements ActionListener {
 
-    private JTextArea nimiTextArea;
-    private JTextArea maistamishetkiTextArea;
+    private JTextField nimiTextArea;
+    private JTextField maistamishetkiTextArea;
     private JTextArea viinityyppiTextArea;
-    private JTextArea vuosikertaTextArea;
+    private JTextField vuosikertaTextArea;
     private JTextArea viinialueTextArea;
-    private JTextArea rypaleetTextArea;
-    private JTextArea arvioTextArea;
-    private JTextArea kuvausTextArea;
+    private JTextField rypaleetTextArea;
+    private JTextField arvioTextArea;
+    private JTextField kuvausTextArea;
     private JLabel palaute;
     private JPanel paivitettava;
 
-    public TallennuksenKuuntelija(JTextArea nimiTextArea, JTextArea maistamishetkiTextArea, JTextArea viinityyppiTextArea, JTextArea vuosikertaTextArea, JTextArea viinialueTextArea, JTextArea rypaleetTextArea, JTextArea arvioTextArea, JTextArea kuvausTextArea, JLabel palauteLabel) {
+    public TallennuksenKuuntelija(JTextField nimiTextArea, JTextField maistamishetkiTextArea, JTextArea viinityyppiTextArea, JTextField vuosikertaTextArea, JTextArea viinialueTextArea, JTextField rypaleetTextArea, JTextField arvioTextArea, JTextField kuvausTextArea, JLabel palauteLabel) {
         this.nimiTextArea = nimiTextArea;
         this.maistamishetkiTextArea = maistamishetkiTextArea;
         this.viinityyppiTextArea = viinityyppiTextArea;
@@ -41,9 +42,11 @@ public class TallennuksenKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (maistamishetkiTextArea.getText().length() != 10) {
-            JOptionPane.showMessageDialog(null, "Päivämääräsi ei ole oikeassa muodossa", "Virhe", JOptionPane.ERROR_MESSAGE);
 
+        if (nimiTextArea.getText().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Sinun täytyy antaa muistiinpanollesi nimi", "Virhe", JOptionPane.ERROR_MESSAGE);
+        } else if (maistamishetkiTextArea.getText().length() != 10) {
+            JOptionPane.showMessageDialog(null, "Päivämäärää ei ole asetettu, tai se ei ole oikeassa muodossa", "Virhe", JOptionPane.ERROR_MESSAGE);
         } else {
             ViiniMuistiinpano viinimuistiinpano = new ViiniMuistiinpano(nimiTextArea.getText());
             viinimuistiinpano.setMuistiinpanonPaivamaara(maistamishetkiTextArea.getText());

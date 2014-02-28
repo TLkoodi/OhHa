@@ -5,9 +5,13 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.List;
+import java.util.TimerTask;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -17,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.Timer;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -31,24 +36,26 @@ public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
     JLabel nimiLabel = new JLabel("Tuotteen nimi:");
-    JTextArea nimiTextArea = new JTextArea();
+    JTextField nimiTextArea = new JTextField();
     JLabel maistamishetkiLabel = new JLabel("Tuotteen maistamishetki (muodossa DD.MM.YYYY):");
-    JTextArea maistamishetkiTextArea = new JTextArea();
+    JTextField maistamishetkiTextArea = new JTextField();
     JLabel viinityyppiLabel = new JLabel("Viinityyppi:");
-    JTextArea viinityyppiTextArea = new JTextArea();
+    JTextField viinityyppiTextArea = new JTextField();
     JLabel vuosikertaLabel = new JLabel("Vuosikerta:");
-    JTextArea vuosikertaTextArea = new JTextArea();
+    JTextField vuosikertaTextArea = new JTextField();
     JLabel viinialueLabel = new JLabel("Viinin valmistusalue:");
     JLabel rypaleetLabel = new JLabel("Käytetyt rypäleet:");
-    JTextArea rypaleetTextArea = new JTextArea();
+    JTextField rypaleetTextArea = new JTextField();
     JLabel arvioLabel = new JLabel("Arvio tuotteesta (0-5 tähteä):");
-    JTextArea arvioTextArea = new JTextArea();
+    JTextField arvioTextArea = new JTextField();
     JLabel kuvausLabel = new JLabel("Vapaa teksti:");
-    JTextArea kuvausTextArea = new JTextArea();
+    JTextField kuvausTextArea = new JTextField();
     JLabel palauteLabel = new JLabel("");
     JLabel valittu = new JLabel("");
     JList muistiinpanoLista;
     JPanel muistiinpanovalikko;
+    private Timer timer;
+    DefaultListModel model;
 
     /**
      * Viinityyppi-pudotusvalikon vaihtoehdot
@@ -69,6 +76,7 @@ public class Kayttoliittyma implements Runnable {
 
     @Override
     public void run() {
+
         frame = new JFrame("Viinimuistio");
         frame.setPreferredSize(new Dimension(800, 400));
 
@@ -138,7 +146,6 @@ public class Kayttoliittyma implements Runnable {
         panel.add(arvioLabel);
         panel.add(arvioTextArea);
         panel.add(kuvausLabel);
-        kuvausTextArea.setMargin(new Insets(5, 5, 5, 5));
         panel.add(kuvausTextArea);
         panel.add(tallennusnappi);
         panel.add(palauteLabel);
@@ -178,17 +185,19 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private JScrollPane getMuistiinpanolistaus() {
-        TiedostojenListaaja listaaja = new TiedostojenListaaja();
+        final TiedostojenListaaja listaaja = new TiedostojenListaaja();
 
         List<String> tunnistetutMuistiinpanojenNimet = listaaja.listaaKansionTiedostot();
 
         String[] listallaOlevatNimet = new String[tunnistetutMuistiinpanojenNimet.size()];
 
         listallaOlevatNimet = tunnistetutMuistiinpanojenNimet.toArray(listallaOlevatNimet);
-
+        
+        
         JList<String> muistiinpanoLista = new JList<String>();
 
         muistiinpanoLista.setListData(listallaOlevatNimet);
+        
 
         muistiinpanoLista.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
@@ -198,14 +207,14 @@ public class Kayttoliittyma implements Runnable {
                 }
             }
         });
+        
 
         JScrollPane scrollPane = new JScrollPane();
         scrollPane.setViewportView(muistiinpanoLista);
         return scrollPane;
     }
 
-    public void paivitaLista() {
-        this.muistiinpanovalikko = luoMuistiinpanovalikko();
-    }
+
+    
 
 }
